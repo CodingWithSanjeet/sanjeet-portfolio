@@ -2,6 +2,10 @@
 
 A modern, responsive portfolio website built with React and TypeScript, showcasing professional experience, skills, and projects with stunning animations and a comprehensive resume template.
 
+## 🌐 Live Demo
+
+**🚀 [View Live Portfolio](sanjeet-kumar-nitt.netlify.app/)**
+
 ![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge&logo=netlify&logoColor=white)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/99ed6bff-9c0b-42d9-ac5f-af317ad50824/deploy-status)](https://app.netlify.com/projects/sanjeet-kumar-nitt/deploys)
 
@@ -252,9 +256,8 @@ yarn build
 ## 📞 Contact
 
 **Sanjeet Kumar**
+- 🌐 **Live Portfolio:** [sanjeet-kumar-nitt.netlify.app/](sanjeet-kumar-nitt.netlify.app)
 - 📧 Email: sanjeet.kuma.nitt@gmail.com
-- 📱 Phone: +91 9876543210
-- 🌐 Portfolio: [https://sanjeet-kumar-portfolio.netlify.app/](https://sanjeet-kumar-portfolio.netlify.app/)
 - 💼 LinkedIn: [https://www.linkedin.com/in/sanjeet-kumar-nitt/](https://www.linkedin.com/in/sanjeet-kumar-nitt/)
 - ⚡ GitHub: [https://github.com/CodingWithSanjeet](https://github.com/CodingWithSanjeet)
 

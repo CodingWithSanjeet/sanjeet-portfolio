@@ -1,0 +1,136 @@
+@import '../../../styles/theme.scss';
+
+.summary-card-modern {
+  background: linear-gradient(145deg, $bg-teal-medium, $bg-blue-light);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid $border-teal;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: $gradient-teal-blue;
+  opacity: 0.8;
+}
+
+.summary-card-modern:hover {
+  transform: translateY(-5px);
+  border-color: rgba($primary-teal, 0.4);
+  box-shadow: 0 10px 30px $shadow-teal;
+}
+
+.summary-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.experience-icon {
+  background: linear-gradient(135deg, $primary-teal, #06d4b8);
+  color: $bg-dark;
+}
+
+.projects-icon {
+  background: linear-gradient(135deg, $primary-blue, #4a90e2);
+  color: $text-white;
+}
+
+.tech-icon {
+  background: linear-gradient(135deg, $primary-pink, #e91e63);
+  color: $text-white;
+}
+
+.clients-icon {
+  background: linear-gradient(135deg, $primary-pink, #c2185b);
+  color: $text-white;
+}
+
+.summary-content {
+  margin-bottom: 1rem;
+}
+
+.summary-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: $primary-teal;
+  text-shadow: 0 0 10px rgba($primary-teal, 0.3);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.summary-label {
+  color: $text-white;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.summary-sublabel {
+  color: $text-gray;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.summary-progress {
+  background: rgba($text-white, 0.1);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, $primary-teal, $primary-blue);
+  transition: width 1.5s ease-in-out;
+  position: relative;
+}
+
+.projects-progress {
+  background: linear-gradient(90deg, $primary-blue, #4a90e2);
+}
+
+.tech-progress {
+  background: linear-gradient(90deg, $primary-pink, #e91e63);
+}
+
+.clients-progress {
+  background: linear-gradient(90deg, $primary-pink, #c2185b);
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba($text-white, 0.3), transparent);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .summary-card-modern {
+    padding: 1rem;
+  }
+} 

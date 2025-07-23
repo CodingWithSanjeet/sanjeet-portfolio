@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Reaching Out - Sanjeet Kumar</title>
+    <style>
+        /* Reset styles for email clients */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1d1d1d 100%);
+            line-height: 1.6;
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            color: #ffffff;
+        }
+        
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1d1d1d 0%, #181818 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(8, 253, 216, 0.1);
+        }
+        
+        /* Gradient line at top */
+        .gradient-border {
+            height: 4px;
+            background: linear-gradient(90deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, #1d1d1d 0%, #181818 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background pattern */
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(8, 253, 216, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(83, 156, 212, 0.1) 0%, transparent 50%);
+            opacity: 0.3;
+        }
+        
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #1d1d1d;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(8, 253, 216, 0.3);
+            line-height: 80px;
+            padding: 0;
+        }
+        
+        .header-title {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-subtitle {
+            color: #cccccc;
+            font-size: 18px;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            color: #1d1d1d;
+            padding: 15px 25px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            position: relative;
+        }
+        
+        .content-section {
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #1d1d1d 0%, #181818 100%);
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #08fdd8, #539cd4);
+            border-radius: 2px;
+        }
+        
+        .message-card {
+            background: linear-gradient(145deg, #2d2d2e 0%, #282828 100%);
+            border: 1px solid rgba(8, 253, 216, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
+            opacity: 0.8;
+        }
+        
+        .response-badge {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            color: #1d1d1d;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(8, 253, 216, 0.3);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            padding: 30px 25px;
+            text-align: center;
+            border-radius: 16px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(8, 253, 216, 0.3);
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 3px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 3px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+        }
+        
+        .cta-title {
+            color: #1d1d1d;
+            margin: 0 0 20px;
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1d1d1d 0%, #181818 100%);
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            margin: 8px;
+            font-size: 15px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(29, 29, 29, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-button-secondary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1d1d1d;
+            border: 2px solid #1d1d1d;
+        }
+        
+        .skills-section {
+            background: linear-gradient(145deg, #2d2d2e 0%, #282828 100%);
+            border: 1px solid rgba(8, 253, 216, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
+            opacity: 0.8;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            color: #1d1d1d;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 6px;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(8, 253, 216, 0.2);
+        }
+        
+        .signature-section {
+            background: linear-gradient(145deg, #2d2d2e 0%, #282828 100%);
+            border: 2px solid #08fdd8;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(8, 253, 216, 0.2);
+        }
+        
+        .footer-section {
+            background: linear-gradient(135deg, #1d1d1d 0%, #0d0d0d 100%);
+            color: #cccccc;
+            padding: 30px 25px;
+            text-align: center;
+            font-size: 13px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 30% 40%, rgba(8, 253, 216, 0.05) 0%, transparent 50%);
+            opacity: 0.8;
+        }
+        
+        .footer-brand {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            color: #1d1d1d;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(8, 253, 216, 0.3);
+        }
+        
+        .footer-text {
+            margin: 10px 0;
+            color: #a2a2a3;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-details {
+            margin: 0;
+            color: #8d8d8d;
+            font-size: 12px;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Hover effects for supported clients */
+        .cta-button:hover {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1d1d1d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(29, 29, 29, 0.5);
+        }
+        
+        .cta-button-secondary:hover {
+            background: rgba(255, 255, 255, 1) !important;
+            color: #08fdd8 !important;
+            border-color: #08fdd8 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(8, 253, 216, 0.3);
+        }
+        
+        /* Mobile responsive */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            .header-section {
+                padding: 30px 20px;
+            }
+            .content-section {
+                padding: 30px 20px;
+            }
+            .header-title {
+                font-size: 28px;
+            }
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+            }
+            .skill-tag {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td align="center" style="padding: 30px 15px;">
+                
+                <div class="email-container">
+                    
+                    <!-- Gradient Border -->
+                    <div class="gradient-border"></div>
+                    
+                    <!-- Header Section -->
+                    <div class="header-section">
+                        <div class="header-icon">
+                            S
+                        </div>
+                        <h1 class="header-title">Sanjeet Kumar</h1>
+                        <p class="header-subtitle">Full Stack Developer</p>
+                    </div>
+
+                    <!-- Alert Banner -->
+                    <div class="alert-banner">
+                        ★ Thank You for Your Interest - Response Incoming!
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="content-section">
+                        <h2 class="section-title">Thank you for reaching out!</h2>
+                        
+                        <!-- Welcome Message -->
+                        <div class="message-card">
+                            <div class="response-badge">
+                                ★ Response Within 24-48 Hours
+                            </div>
+                            
+                            <h3 style="color: #08fdd8; font-size: 20px; margin: 0 0 15px; font-weight: 600;">
+                                Hi there! 
+                            </h3>
+                            
+                            <p style="color: #cccccc; line-height: 1.8; margin: 0 0 20px; font-size: 16px;">
+                                I'm excited to hear from you and really appreciate you taking the time to explore my portfolio. Your message means a lot to me!
+                            </p>
+                            
+                            <p style="color: #cccccc; line-height: 1.8; margin: 0 0 20px; font-size: 16px;">
+                                I'll get back to you within <strong style="color: #08fdd8;">24-48 hours</strong>. In the meantime, feel free to check out my latest projects or connect with me on social media.
+                            </p>
+                        </div>
+
+                        <!-- Call to Action Section -->
+                        <div class="cta-section">
+                            <h3 class="cta-title">
+                                ► Let's Connect!
+                            </h3>
+                            <a href="https://www.linkedin.com/in/sanjeet-kumar-5a33b77b/" 
+                               class="cta-button">
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/CodingWithSanjeet" 
+                               class="cta-button cta-button-secondary">
+                                GitHub
+                            </a>
+                        </div>
+
+                        <!-- Skills Section -->
+                        <div class="skills-section">
+                            <h3 style="color: #ffffff; margin: 0 0 20px; font-size: 18px; font-weight: bold;">
+                                ► What I'm Working With
+                            </h3>
+                            
+                            <div style="text-align: center;">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">Redux</span>
+                                <span class="skill-tag">SCSS</span>
+                                <span class="skill-tag">REST API</span>
+                                <span class="skill-tag">MongoDB</span>
+                            </div>
+                        </div>
+
+                        <!-- Signature -->
+                        <div class="signature-section">
+                            <p style="color: #cccccc; line-height: 1.6; margin: 0 0 15px; font-size: 16px; font-style: italic;">
+                                Looking forward to our conversation!
+                            </p>
+                            
+                            <p style="color: #ffffff; margin: 0; font-size: 16px; line-height: 1.4;">
+                                Best regards,<br>
+                                <strong style="color: #08fdd8; font-size: 18px;">Sanjeet Kumar</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="footer-section">
+                        <div class="footer-brand">
+                            SANJEET KUMAR PORTFOLIO
+                        </div>
+                        <p class="footer-text">Full Stack Developer | Creating Amazing Web Experiences</p>
+                        <p class="footer-details">
+                            This email was sent in response to your portfolio inquiry.<br>
+                            If you didn't expect this email, please disregard it.
+                        </p>
+                    </div>
+                    
+                </div>
+                
+            </td>
+        </tr>
+    </table>
+</body>
+</html> 

@@ -1,0 +1,622 @@
+/* Experience Page Styles - Compact Layout */
+.experience-page {
+  min-height: 100vh;
+  padding: 1rem;
+  padding-top: 10rem;
+  padding-left: 12rem; /* Account for fixed menu width (10rem + 2rem buffer) */
+  // background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  position: relative;
+}
+
+.experience-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Section - Compact */
+.experience-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-header h2 {
+  margin-bottom: 1rem;
+}
+
+/* Experience Grid Layout */
+.experience-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Compact Experience Card */
+.experience-card-compact {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(8, 253, 216, 0.2);
+  // transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.experience-card-compact:hover {
+  border-color: rgba(8, 253, 216, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(8, 253, 216, 0.1);
+}
+
+/* Company Header - Horizontal Layout */
+.company-header-compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(8, 253, 216, 0.2);
+}
+
+.company-main-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.company-logo-compact {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 0.6rem;
+  border: 2px solid rgba(8, 253, 216, 0.4);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.company-text-info {
+  flex: 1;
+}
+
+.job-title-compact {
+  color: #08fdd8;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 8px rgba(8, 253, 216, 0.3);
+}
+
+.company-details-compact {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.company-name-compact {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.location-compact {
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.duration-compact {
+  background: linear-gradient(135deg, rgba(83, 156, 212, 0.8), rgba(97, 147, 172, 0.8));
+  color: #ffffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Tech Overview */
+.tech-overview {
+  flex-shrink: 0;
+}
+
+.tech-tags-compact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-width: 250px;
+}
+
+.tech-tag-compact {
+  background: linear-gradient(135deg, rgba(8, 253, 216, 0.2), rgba(83, 156, 212, 0.2));
+  color: #08fdd8;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid rgba(8, 253, 216, 0.3);
+}
+
+.tech-more {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cccccc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.tech-more.clickable-tech {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tech-more.clickable-tech:hover {
+  background: rgba(8, 253, 216, 0.2);
+  color: #08fdd8;
+  border-color: rgba(8, 253, 216, 0.4);
+  transform: scale(1.05);
+}
+
+/* Projects Section - Compact */
+.projects-compact {
+  margin-top: 1rem;
+}
+
+.projects-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1rem;
+}
+
+/* Project Card - Compact */
+.project-card-compact {
+  background: linear-gradient(135deg, rgba(8, 253, 216, 0.05), rgba(83, 156, 212, 0.05));
+  border-radius: 10px;
+  border: 1px solid rgba(8, 253, 216, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.project-card-compact:hover {
+  border-color: rgba(8, 253, 216, 0.3);
+  transform: translateY(-1px);
+}
+
+.project-header-compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-header-compact:hover {
+  background: rgba(8, 253, 216, 0.05);
+}
+
+.project-main-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.client-logo-compact {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  padding: 0.4rem;
+  border: 1px solid rgba(83, 156, 212, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-text-info {
+  flex: 1;
+}
+
+.project-title-compact {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.project-meta {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.client-name-compact {
+  color: #08fdd8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-type-compact {
+  background: linear-gradient(135deg, rgba(8, 253, 216, 0.3), rgba(83, 156, 212, 0.3));
+  color: #08fdd8;
+  padding: 0.1rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.project-duration-compact {
+  color: #cccccc;
+  font-size: 0.8rem;
+}
+
+.expand-btn {
+  background: rgba(8, 253, 216, 0.2);
+  color: #08fdd8;
+  border: 1px solid rgba(8, 253, 216, 0.4);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.expand-btn:hover {
+  background: rgba(8, 253, 216, 0.4);
+  transform: scale(1.1);
+}
+
+/* Expanded Project Details */
+.project-details-expanded {
+  padding: 0 1rem 1rem 1rem;
+  border-top: 1px solid rgba(8, 253, 216, 0.1);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.responsibilities-compact {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.responsibilities-compact li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #cccccc;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.responsibilities-compact li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #08fdd8;
+  font-size: 0.7rem;
+}
+
+.responsibilities-compact li.more-indicator::before {
+  content: none;
+}
+
+.more-indicator {
+  color: #08fdd8 !important;
+  font-style: italic;
+  font-size: 0.8rem !important;
+}
+
+.more-indicator.clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  margin: 0.2rem 0;
+}
+
+.more-indicator.clickable:hover {
+  background: rgba(8, 253, 216, 0.1);
+  color: #ffffff !important;
+  // text-shadow: 0 0 5px rgba(8, 253, 216, 0.5);
+  transform: translateX(2px);
+}
+
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tech-tag-small {
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.tech-tag-small.client {
+  background: rgba(83, 156, 212, 0.2);
+  color: #539cd4;
+  border-color: rgba(83, 156, 212, 0.3);
+}
+
+.tech-tag-small.internal {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+/* Modern Summary Dashboard */
+.experience-summary-modern {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border-radius: 20px;
+  border: 1px solid rgba(8, 253, 216, 0.2);
+  backdrop-filter: blur(15px);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.summary-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #08fdd8, #539cd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.summary-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Achievement Badges */
+.achievement-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(8, 253, 216, 0.2);
+}
+
+.achievement-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(8, 253, 216, 0.15), rgba(83, 156, 212, 0.1));
+  border: 1px solid rgba(8, 253, 216, 0.3);
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.achievement-badge:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(8, 253, 216, 0.25), rgba(83, 156, 212, 0.15));
+  border-color: rgba(8, 253, 216, 0.5);
+  box-shadow: 0 5px 15px rgba(8, 253, 216, 0.2);
+}
+
+.achievement-icon {
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.achievement-text {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Responsive Design */
+
+/* Laptop Screens (1024px - 1440px) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .experience-page {
+    padding: 1rem;
+    padding-top: 8rem;
+    padding-left: 11rem; /* Slightly less padding for laptops */
+  }
+  
+  .experience-container {
+    max-width: 1200px; /* Optimized container width for laptops */
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Smaller minimum for better fit */
+    gap: 1.2rem;
+  }
+  
+  .experience-header h2 {
+    margin-bottom: 2rem;
+    font-size: 3.5rem; /* Slightly smaller for laptops */
+  }
+  
+  .summary-dashboard {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Better fit for laptop screens */
+    gap: 1.2rem;
+  }
+  
+  .experience-card-compact {
+    padding: 1.3rem; /* Slightly more compact */
+  }
+  
+  .company-logo-compact {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .client-logo-compact {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .job-title-compact {
+    font-size: 1.3rem;
+  }
+  
+  .project-title-compact {
+    font-size: 0.95rem;
+  }
+  
+  /* Optimize tech tags for laptops */
+  .tech-tags-compact {
+    flex-wrap: wrap;
+    max-width: 280px; /* Better control on laptop screens */
+  }
+  
+  .tech-tag-compact {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+  }
+  
+  /* Better spacing for achievement section */
+  .achievement-section {
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .achievement-badge {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Optimize project details for laptop */
+  .project-details-expanded {
+    padding: 0.8rem 1rem 1rem 1rem;
+  }
+  
+  .responsibilities-compact li {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+}
+
+/* Large Laptops (1441px - 1600px) */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .experience-page {
+    padding-left: 0rem !important;
+    padding-right: 2rem !important;
+  }
+  
+  .experience-container {
+    max-width: 1350px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 1.4rem;
+  }
+  
+  .summary-dashboard {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  /* On mobile/tablet, menu is hidden, so remove left padding */
+  .experience-page {
+    padding: 0.8rem;
+    padding-left: 5rem !important;
+    padding-right: 3rem !important;
+    padding-top: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-page {
+    padding: 0.8rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .company-header-compact {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .tech-overview {
+    align-self: flex-start;
+  }
+  
+  .project-meta {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+  }
+  
+  .summary-dashboard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .summary-title {
+    font-size: 1.5rem;
+  }
+  
+  .achievement-section {
+    gap: 0.8rem;
+  }
+  
+  .achievement-badge {
+    padding: 0.5rem 1rem;
+  }
+  
+  .achievement-text {
+    font-size: 0.8rem;
+  }
+} 

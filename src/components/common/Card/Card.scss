@@ -1,0 +1,269 @@
+@import '../../../styles/theme.scss';
+
+// Base Card Styles
+.common-card {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: $transition-medium;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  
+  // Padding Variants
+  &.card-padding-small {
+    padding: 1rem;
+  }
+  
+  &.card-padding-medium {
+    padding: 2rem;
+  }
+  
+  &.card-padding-large {
+    padding: 2.5rem;
+  }
+  
+  // Hover Effect
+  &.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+  
+  // Border Accents
+  &.card-border-teal {
+    border-left: 4px solid $primary-teal;
+  }
+  
+  &.card-border-blue {
+    border-left: 4px solid $primary-blue;
+  }
+  
+  &.card-border-pink {
+    border-left: 4px solid $primary-pink;
+  }
+}
+
+// Card Header
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  
+  .card-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px rgba(8, 253, 216, 0.3));
+    
+    span, svg {
+      display: block;
+    }
+  }
+  
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $text-white;
+    margin: 0;
+    word-wrap: break-word;
+  }
+}
+
+// Card Content
+.card-content {
+  color: $text-light;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+// Stat Card Variant
+.card-variant-stat {
+  background: $bg-teal-light;
+  border: 1px solid $border-teal;
+  text-align: center;
+  
+  &:hover {
+    border-color: $primary-teal;
+    box-shadow: 0 8px 25px $shadow-teal;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .card-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: $primary-teal;
+      text-shadow: 0 0 15px rgba(8, 253, 216, 0.3);
+    }
+  }
+  
+  .card-content {
+    color: $text-light;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+}
+
+// Story Card Variant
+.card-variant-story {
+  background: $bg-blue-light;
+  border: 1px solid $border-blue;
+  min-height: 200px;
+  
+  &:hover {
+    border-color: $primary-blue;
+    box-shadow: 0 15px 35px $shadow-blue;
+  }
+  
+  .card-header {
+    .card-icon {
+      font-size: 2.5rem;
+    }
+    
+    .card-title {
+      font-size: 1.4rem;
+    }
+  }
+  
+  .card-content {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+}
+
+// Growth Card Variant
+.card-variant-growth {
+  background: $bg-teal-light;
+  border: 1px solid $border-teal;
+  text-align: center;
+  min-height: 250px;
+  
+  &:hover {
+    border-color: $primary-teal;
+    box-shadow: 0 15px 35px $shadow-teal;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    
+    .card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 15px rgba(8, 253, 216, 0.4));
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+  }
+  
+  .card-content {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+}
+
+// Default Card Variant
+.card-variant-default {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .common-card {
+    &.card-padding-medium {
+      padding: 1.5rem;
+    }
+    
+    &.card-padding-large {
+      padding: 2rem;
+    }
+  }
+  
+  .card-header {
+    .card-icon {
+      font-size: 2rem;
+    }
+    
+    .card-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .card-content {
+    font-size: 1rem;
+  }
+  
+  .card-variant-stat {
+    .card-header {
+      .card-title {
+        font-size: 2rem;
+      }
+    }
+  }
+  
+  .card-variant-growth {
+    .card-header {
+      .card-icon {
+        font-size: 3rem;
+      }
+      
+      .card-title {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .common-card {
+    &.card-padding-medium {
+      padding: 1rem;
+    }
+    
+    &.card-padding-large {
+      padding: 1.5rem;
+    }
+  }
+  
+  .card-header {
+    .card-icon {
+      font-size: 1.5rem;
+    }
+    
+    .card-title {
+      font-size: 1rem;
+    }
+  }
+  
+  .card-content {
+    font-size: 0.9rem;
+  }
+  
+  .card-variant-stat {
+    .card-header {
+      .card-title {
+        font-size: 1.8rem;
+      }
+    }
+    
+    .card-content {
+      font-size: 0.8rem;
+    }
+  }
+} 

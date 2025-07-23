@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Portfolio Contact - {{user_name}}</title>
+    <style>
+        /* Reset styles for email clients */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1d1d1d 100%);
+            line-height: 1.6;
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            color: #ffffff;
+        }
+        
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1d1d1d 0%, #181818 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(8, 253, 216, 0.1);
+        }
+        
+        /* Gradient line at top */
+        .gradient-border {
+            height: 4px;
+            background: linear-gradient(90deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, #1d1d1d 0%, #181818 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background pattern */
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(8, 253, 216, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(83, 156, 212, 0.1) 0%, transparent 50%);
+            opacity: 0.3;
+        }
+        
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #1d1d1d;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(8, 253, 216, 0.3);
+            line-height: 80px;
+            padding: 0;
+            letter-spacing: 1px;
+        }
+        
+        .header-title {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-subtitle {
+            color: #cccccc;
+            font-size: 18px;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            color: #1d1d1d;
+            padding: 15px 25px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            position: relative;
+        }
+        
+        .content-section {
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #1d1d1d 0%, #181818 100%);
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #08fdd8, #539cd4);
+            border-radius: 2px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(145deg, #2d2d2e 0%, #282828 100%);
+            border: 1px solid rgba(8, 253, 216, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
+            opacity: 0.8;
+        }
+        
+        .card-header {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            border-radius: 12px;
+            vertical-align: middle;
+            text-align: center;
+            font-weight: bold;
+            color: #1d1d1d;
+            font-size: 16px;
+            box-shadow: 0 8px 20px rgba(8, 253, 216, 0.3);
+            padding: 10px;
+        }
+        
+        .card-content {
+            vertical-align: middle;
+            padding-left: 20px;
+        }
+        
+        .card-label {
+            font-size: 12px;
+            color: #539cd4;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+        
+        .card-value {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .card-value a {
+            color: #08fdd8;
+            text-decoration: none;
+        }
+        
+        .message-section {
+            background: linear-gradient(145deg, #2d2d2e 0%, #282828 100%);
+            border-left: 4px solid #08fdd8;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 16px 16px 0;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .message-badge {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            color: #1d1d1d;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(8, 253, 216, 0.3);
+        }
+        
+        .message-text {
+            font-style: italic;
+            color: #cccccc;
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .action-section {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            padding: 30px 25px;
+            text-align: center;
+            border-radius: 16px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(8, 253, 216, 0.3);
+        }
+        
+        .action-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 3px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 3px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+        }
+        
+        .action-title {
+            color: #1d1d1d;
+            margin: 0 0 20px;
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .action-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1d1d1d 0%, #181818 100%);
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            margin: 8px;
+            font-size: 15px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(29, 29, 29, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .action-button-secondary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1d1d1d;
+            border: 2px solid #1d1d1d;
+        }
+        
+        .reminder-section {
+            background: linear-gradient(135deg, #fd1056 0%, #d63384 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(253, 16, 86, 0.3);
+        }
+        
+        .reminder-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #fd1056, #08fdd8, #fd1056);
+        }
+        
+        .reminder-text {
+            margin: 0;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-section {
+            background: linear-gradient(135deg, #1d1d1d 0%, #0d0d0d 100%);
+            color: #cccccc;
+            padding: 30px 25px;
+            text-align: center;
+            font-size: 13px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 30% 40%, rgba(8, 253, 216, 0.05) 0%, transparent 50%);
+            opacity: 0.8;
+        }
+        
+        .footer-brand {
+            background: linear-gradient(135deg, #08fdd8 0%, #539cd4 100%);
+            color: #1d1d1d;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(8, 253, 216, 0.3);
+        }
+        
+        .footer-text {
+            margin: 10px 0;
+            color: #a2a2a3;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-details {
+            margin: 0;
+            color: #8d8d8d;
+            font-size: 12px;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Hover effects for supported clients */
+        .action-button:hover {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1d1d1d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(29, 29, 29, 0.5);
+        }
+        
+        .action-button-secondary:hover {
+            background: rgba(255, 255, 255, 1) !important;
+            color: #08fdd8 !important;
+            border-color: #08fdd8 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(8, 253, 216, 0.3);
+        }
+        
+        .contact-card:hover {
+            border-color: rgba(8, 253, 216, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Mobile responsive */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            .header-section {
+                padding: 30px 20px;
+            }
+            .content-section {
+                padding: 30px 20px;
+            }
+            .card-header,
+            .card-header tr,
+            .card-header td {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+            .card-icon {
+                margin: 0 auto 15px auto !important;
+                width: 60px !important;
+                height: 60px !important;
+            }
+            .card-content {
+                padding-left: 0 !important;
+                text-align: center !important;
+            }
+            .header-title {
+                font-size: 28px;
+            }
+            .action-button {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td align="center" style="padding: 30px 15px;">
+                
+                <div class="email-container">
+                    
+                    <!-- Gradient Border -->
+                    <div class="gradient-border"></div>
+                    
+                    <!-- Header Section -->
+                    <div class="header-section">
+                        <div class="header-icon">
+                            EMAIL
+                        </div>
+                        <h1 class="header-title">New Portfolio Contact</h1>
+                        <p class="header-subtitle">Someone reached out through your portfolio!</p>
+                    </div>
+
+                    <!-- Alert Banner -->
+                    <div class="alert-banner">
+                        ★ New Lead Alert - Priority Response Required
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="content-section">
+                        <h2 class="section-title">Contact Details</h2>
+                        
+                        <!-- Name Card -->
+                        <div class="contact-card">
+                            <table class="card-header" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td class="card-icon" style="width: 60px;">USER</td>
+                                    <td class="card-content">
+                                        <div class="card-label">Full Name</div>
+                                        <div class="card-value">{{user_name}}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <!-- Email Card -->
+                        <div class="contact-card">
+                            <table class="card-header" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td class="card-icon" style="width: 60px;">MAIL</td>
+                                    <td class="card-content">
+                                        <div class="card-label">Email Address</div>
+                                        <div class="card-value">
+                                            <a href="mailto:{{user_email}}">{{user_email}}</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <!-- Subject Card -->
+                        <div class="contact-card">
+                            <table class="card-header" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td class="card-icon" style="width: 60px;">SUBJ</td>
+                                    <td class="card-content">
+                                        <div class="card-label">Subject Line</div>
+                                        <div class="card-value">{{user_subject}}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Message Content -->
+                        <h3 style="color: #ffffff; margin: 40px 0 20px; font-size: 20px; font-weight: bold;">
+                            ► Message Content
+                        </h3>
+                        <div class="message-section">
+                            <div class="message-badge">
+                                INQUIRY MESSAGE
+                            </div>
+                            <p class="message-text">
+                                "{{message}}"
+                            </p>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="action-section">
+                            <h3 class="action-title">
+                                ► Quick Actions
+                            </h3>
+                            <a href="mailto:{{user_email}}?subject=Re: {{user_subject}}&body=Hi {{user_name}},%0D%0A%0D%0AThank you for reaching out through my portfolio! I'm excited to connect with you." 
+                               class="action-button">
+                                Reply Now
+                            </a>
+                            <a href="mailto:{{user_email}}" 
+                               class="action-button action-button-secondary">
+                                Compose New
+                            </a>
+                        </div>
+
+                        <!-- Response Time Reminder -->
+                        <div class="reminder-section">
+                            <p class="reminder-text">
+                                ★ <strong>Professional Reminder:</strong> Respond within 24-48 hours for maximum impact!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="footer-section">
+                        <div class="footer-brand">
+                            SANJEET KUMAR PORTFOLIO
+                        </div>
+                        <p class="footer-text">Professional Portfolio Contact System</p>
+                        <p class="footer-details">
+                            Generated: {{timestamp}}<br>
+                            Automated Notification System
+                        </p>
+                    </div>
+                    
+                </div>
+                
+            </td>
+        </tr>
+    </table>
+</body>
+</html> 

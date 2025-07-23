@@ -1,0 +1,938 @@
+@import '../../../styles/theme.scss';
+
+// Smooth Content Entrance Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Animation Classes
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+// Keyword Highlighting Styles
+.keyword-highlight {
+  font-weight: 600;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  transition: all $transition-fast;
+  position: relative;
+  display: inline-block;
+  
+  &.keyword-highlight-1 {
+    background: linear-gradient(135deg, $bg-teal-medium, $bg-teal-light);
+    color: $primary-teal;
+    border: 1px solid $border-teal;
+    box-shadow: 0 2px 8px rgba(8, 253, 216, 0.1);
+    
+    &:hover {
+      background: $bg-teal-border;
+      color: $text-white;
+      box-shadow: 0 4px 12px $shadow-teal;
+      transform: translateY(-1px);
+    }
+  }
+  
+  &.keyword-highlight-2 {
+    background: linear-gradient(135deg, $bg-blue-medium, $bg-blue-light);
+    color: $primary-blue;
+    border: 1px solid $border-blue;
+    box-shadow: 0 2px 8px rgba(83, 156, 212, 0.1);
+    
+    &:hover {
+      background: rgba(83, 156, 212, 0.15);
+      color: $text-white;
+      box-shadow: 0 4px 12px $shadow-blue;
+      transform: translateY(-1px);
+    }
+  }
+  
+  &.keyword-highlight-3 {
+    background: linear-gradient(135deg, $bg-pink-medium, $bg-pink-light);
+    color: $primary-pink;
+    border: 1px solid $border-pink;
+    box-shadow: 0 2px 8px rgba(253, 16, 86, 0.1);
+    
+    &:hover {
+      background: rgba(253, 16, 86, 0.15);
+      color: $text-white;
+      box-shadow: 0 4px 12px $shadow-pink;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Highlighted Content Styling
+.highlighted-content {
+  position: relative;
+  color: $text-light;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 1s 2.5s forwards ease-out;
+  
+  .tag-before,
+  .tag-after {
+    font-family: "La Belle Aurore", cursive;
+    color: $primary-blue;
+    font-size: 18px;
+    position: absolute;
+    opacity: 0;
+    animation: fadeIn 1s 2.6s forwards ease-out;
+  }
+  
+  .tag-before {
+    margin-top: -1rem;
+    left: -1rem;
+  }
+  
+  .tag-after {
+    left: -1rem;
+    bottom: -2rem;
+  }
+}
+
+.content-paragraph {
+  @media (max-width: 480px) {
+    font-size: 1rem !important;
+  }
+
+  @media (max-width: 1300px) {
+    margin: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1rem !important;
+    
+    .tag-after {
+      font-size: 14px;
+      left: -1.5rem;
+    }
+
+    .tag-before {
+      font-size: 14px;
+      left: -1.5rem;
+    }
+
+    &:first-child {
+      margin-top: 20px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Professional Title Styling
+.professional-title {
+  background: linear-gradient(135deg, $bg-teal-medium, $bg-blue-medium);
+  border-left: 4px solid $primary-teal;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px $shadow-teal;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: $text-white;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px $shadow-teal-strong;
+    transition: all $transition-fast;
+  }
+}
+
+// Page Layout - Fix opacity override from global CSS
+.page-skills {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  opacity: 1 !important; // Override global .section-full opacity: 0
+  
+  .text-zone + div {
+    display: none;
+  }
+  
+  .text-zone {
+    width: 100%;
+    padding-right: 0;
+    max-width: none;
+  }
+  
+  &.section-full .text-zone {
+    padding-left: 10rem;
+    padding-right: 5rem;
+  }
+}
+
+// Skills Main Container
+.skills-main-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+// Section Headers moved to SectionContainer.scss
+
+// Company Experience Section - Styling now handled by SectionContainer
+
+.companies-horizontal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.company-card-compact {
+  background: $bg-teal-light;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid $bg-teal-border;
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  transition: $transition-medium;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  
+  &:hover {
+    transform: translateY(-8px) scale($hover-scale);
+    box-shadow: 0 25px 50px $shadow-teal-strong;
+    border-color: $shadow-teal-stronger;
+    
+    .company-logo-small {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+  
+  &.oracle-card {
+    border-left: 4px solid $primary-teal;
+  }
+
+  &.bestwestern-card {
+    border-left: 4px solid $primary-blue;
+  }
+  
+  &.adobe-card {
+    border-left: 4px solid $primary-pink;
+  }
+}
+
+.company-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  flex: 1;
+  
+  .company-logo-small {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: $transition-medium;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    flex-shrink: 0;
+  }
+  
+  .company-details {
+    min-width: 0;
+    flex: 1;
+    
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $text-white;
+      margin: 0 0 0.3rem 0;
+    }
+    
+    p {
+      color: $primary-teal;
+      font-size: 0.95rem;
+      margin: 0 0 0.2rem 0;
+      font-weight: 500;
+    }
+    
+    .duration {
+      color: $text-gray;
+      font-size: 0.8rem;
+      margin: 0;
+    }
+    
+    // Experience Details Link Styling
+    a {
+      color: $primary-teal;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid $primary-teal;
+      border-radius: 20px;
+      background: linear-gradient(135deg, transparent 0%, rgba(8, 253, 216, 0.05) 100%);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: #1d1d1d;
+        background: linear-gradient(135deg, $primary-teal 0%, #539cd4 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(8, 253, 216, 0.3);
+        border-color: transparent;
+      }
+      
+      &::after {
+        content: ' →';
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover::after {
+        transform: translateX(3px);
+      }
+    }
+  }
+}
+
+.company-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  
+  .tech-badge {
+    background: $gradient-teal-blue;
+    color: $text-white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+  }
+  
+  .achievement-mini {
+    background: $gradient-pink-teal;
+    color: $text-white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px $shadow-pink;
+  }
+}
+
+// Skills Content Section - Styling now handled by SectionContainer
+
+.skills-grid-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.skills-description {
+  .tech-skills-list {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    
+    li {
+      color: $text-light;
+      margin-bottom: 0.8rem;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+      transition: $transition-fast;
+      
+      &::marker {
+        color: $primary-teal;
+      }
+      
+      &:hover {
+        color: $text-white;
+        transform: translateX(8px);
+      }
+    }
+  }
+}
+
+.skills-charts-compact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem 0.1rem;
+  
+  .chart-item {
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    transition: $transition-medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    
+    // Theme color rotation for different skills
+    &:nth-child(3n+1) {
+      background: $bg-teal-medium;
+      border: 1px solid $border-teal;
+      
+      .tech-icon svg { fill: $text-white; }
+      
+      &:hover {
+        background: $primary-teal;
+        box-shadow: 0 5px 15px $shadow-teal;
+        border-color: $shadow-teal-strong;
+        
+        .tech-icon svg { fill: $bg-dark; }
+      }
+    }
+    
+    &:nth-child(3n+2) {
+      background: $bg-blue-medium;
+      border: 1px solid $border-blue;
+      
+      .tech-icon svg { fill: $text-white; }
+      
+      &:hover {
+        background: $primary-blue;
+        box-shadow: 0 5px 15px $shadow-blue;
+        border-color: $shadow-blue-strong;
+        
+        .tech-icon svg { fill: $bg-dark; }
+      }
+    }
+    
+    &:nth-child(3n+3) {
+      background: $bg-pink-medium;
+      border: 1px solid $border-pink;
+      
+      .tech-icon svg { fill: $text-white; }
+      
+      &:hover {
+        background: $primary-pink;
+        box-shadow: 0 5px 15px $shadow-pink;
+        border-color: $shadow-pink-strong;
+        
+        .tech-icon svg { fill: $bg-dark; }
+      }
+    }
+    
+    &:hover {
+      transform: translateY(-2px);
+      
+      .tech-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-100%) translateX(-50%);
+      }
+    }
+    
+    .tech-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transition: $transition-fast;
+      
+      svg {
+        width: 100%;
+        height: 100%;
+        transition: $transition-fast;
+        padding: 6px;
+        box-sizing: border-box;
+      }
+    }
+    
+    .tech-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateY(-10px) translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: $text-white;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 10;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid transparent;
+        border-top-color: rgba(0, 0, 0, 0.9);
+      }
+    }
+  }
+}
+
+// Animations moved to SectionContainer.scss
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+  .page-skills .text-zone {
+    padding-left: 7rem !important;
+    padding-right: 2rem !important;
+  }
+
+}
+// Responsive Design
+@media (max-width: 1200px) {
+  .page-skills.section-full .text-zone {
+    padding-left: 5rem;
+    padding-right: 3rem;
+  }
+  
+  .section-header h3 {
+    font-size: 2.2rem;
+  }
+  
+  .companies-horizontal {
+    gap: 1.5rem;
+  }
+  
+  .company-experience-section,
+  .skills-content-main {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .companies-horizontal {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .skills-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .skills-charts-compact {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .professional-title {
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 1.2rem !important;
+  }
+  
+  .page-skills.section-full .text-zone {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .skills-main-container {
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+  
+  .section-header h3 {
+    font-size: 1.8rem;
+  }
+  
+  .company-experience-section,
+  .skills-content-main {
+    padding: 1.5rem;
+  }
+  
+  .company-card-compact {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+    min-height: auto;
+  }
+  
+  .company-left {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .company-right {
+    align-items: center;
+  }
+  
+  .skills-description .tech-skills-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-charts-compact {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    
+    .chart-item .tech-tooltip {
+      font-size: 0.65rem;
+      padding: 0.3rem 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .professional-title {
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    font-size: 1rem !important;
+  }
+  
+  .skills-charts-compact {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+  
+  .text-zone h2,
+  h2 {
+    font-size: 1.9rem !important;
+    line-height: 2rem !important;
+  }
+
+  h2:last-child {
+    margin-bottom: 50px !important;
+  }
+
+  .page-skills {
+    display: block;
+    
+    .text-zone {
+      width: 100%;
+    }
+
+    .text-zone + div {
+      width: 100%;
+      padding-top: 2rem;
+    }
+  }
+}
+
+// Enhanced Mobile Optimizations
+@media (max-width: 425px) {
+  .page-skills.section-full .text-zone {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .skills-main-container {
+    margin-top: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    
+    h3 {
+      font-size: 1.6rem;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .header-sparkles {
+      align-self: center;
+      font-size: 1.2rem;
+      gap: 0.3rem;
+    }
+  }
+  
+  .company-experience-section,
+  .skills-content-main {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .company-card-compact {
+    padding: 1rem;
+    border-radius: 12px;
+    min-height: 100px;
+    
+    .company-logo-small {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .company-details {
+      h4 {
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+      
+      p {
+        font-size: 0.85rem;
+      }
+      
+      .duration {
+        font-size: 0.75rem;
+      }
+    }
+    
+    .tech-badge {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+    }
+    
+    .achievement-mini {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+  
+  .professional-title {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem !important;
+    margin: 0.8rem 0;
+    letter-spacing: 0.3px;
+    
+    .tag-before,
+    .tag-after {
+      font-size: 12px;
+    }
+  }
+  
+  .skills-description {
+    .tech-skills-list {
+      padding-left: 1rem;
+      margin: 1rem 0;
+      
+      li {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+      }
+    }
+  }
+  
+  .skills-charts-compact {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+    justify-items: center;
+    
+    .chart-item {
+      width: 35px;
+      height: 35px;
+      
+      .tech-icon svg {
+        padding: 4px;
+      }
+      
+      .tech-tooltip {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.4rem;
+        bottom: 110%;
+      }
+    }
+  }
+}
+
+// Extra Small Mobile Devices (320px and below)
+@media (max-width: 320px) {
+  .page-skills.section-full .text-zone {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .section-header h3 {
+    font-size: 1.4rem;
+  }
+  
+  .company-experience-section,
+  .skills-content-main {
+    padding: 0.8rem;
+  }
+  
+  .company-card-compact {
+    padding: 0.8rem;
+    gap: 0.8rem;
+    
+    .company-details h4 {
+      font-size: 0.9rem;
+    }
+    
+    .company-details p {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .professional-title {
+    padding: 0.6rem;
+    font-size: 0.8rem !important;
+    
+    .tag-before,
+    .tag-after {
+      font-size: 10px;
+      left: -0.5rem;
+    }
+  }
+  
+  .skills-charts-compact {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
+    
+    .chart-item {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  
+  .text-zone h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.8rem !important;
+  }
+}
+
+// Touch-Friendly Enhancements for Mobile
+@media (max-width: 768px) and (pointer: coarse) {
+  .sparkle-item {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .chart-item {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 8px;
+    
+    &:hover {
+      transform: none;
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  
+  .company-card-compact {
+    &:hover {
+      transform: translateY(-4px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  .keyword-highlight {
+    padding: 0.2rem 0.4rem;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// Landscape Mobile Orientation
+@media (max-width: 768px) and (orientation: landscape) {
+  .skills-main-container {
+    gap: 1.5rem;
+  }
+  
+  .companies-horizontal {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .company-card-compact {
+    padding: 1rem;
+    min-height: 80px;
+    
+    .company-left {
+      flex-direction: row;
+      text-align: left;
+      gap: 0.8rem;
+    }
+    
+    .company-right {
+      align-items: flex-end;
+    }
+  }
+  
+  .skills-charts-compact {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+// High DPI Mobile Displays
+@media (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .company-logo-small {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  .tech-icon svg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+  

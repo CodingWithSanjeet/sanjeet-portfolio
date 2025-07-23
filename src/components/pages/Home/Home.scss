@@ -1,0 +1,428 @@
+// Fix visibility issues from index.css
+#section-home {
+  opacity: 1 !important;
+}
+
+.section-full {
+  opacity: 1 !important;
+}
+
+.text-zone {
+  opacity: 1 !important;
+}
+
+// Original Home page styles
+#section-home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+  }
+
+  .text-zone {
+    width: 60%;
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
+
+  .avatar-box {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100vh;
+    max-height: 100vh;
+  }
+
+  /* Keep only avatarGlow animation */
+  .avatar-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #08fdd8, #539cd4, #fd1056);
+    border-radius: 50%;
+    z-index: -1;
+    animation: avatarGlow 4s ease-in-out infinite;
+    filter: blur(20px);
+  }
+
+  @keyframes avatarGlow {
+    0%, 100% { 
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% { 
+      transform: translate(-50%, -50%) scale(1.1) rotate(180deg);
+      opacity: 0.6;
+    }
+  }
+  
+  .text-zone h1 {
+    font-size: 2.2rem;
+    line-height: 50px;
+    letter-spacing: -3px;
+    margin: 0;
+    position: relative;
+    color: #fff;
+  }
+  
+  .text-zone h1::before {
+    content: "<h1>";
+    position: absolute;
+    top: -80px;
+    left: -10px;
+    font-size: 1.2rem;
+    opacity: 0;
+    font-weight: 100;
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 4s forwards;
+  }
+  
+  .text-zone h1::after {
+    content: "</h1>";
+    position: absolute;
+    bottom: -60px;
+    left: -10px;
+    font-size: 1.2rem;
+    opacity: 0;
+    font-weight: 100;
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 4s forwards;
+  }
+  
+  .text-zone img {
+    height: 3.2rem;
+    width: 3.2rem;
+    animation: rotateIn 1s linear both;
+    animation-delay: 1.4s;
+  }
+  
+  #section-home .text-zone p {
+    margin-top: 60px;
+    color: #a2a2a3;
+    letter-spacing: 4px;
+    font-size: 18px;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s 4.1s forwards;
+  }
+
+
+
+  // Contact Me button styles will be here
+  // [rest of the CSS continues...]
+  
+  #section-home .text-zone p::before {
+    content: "<p>";
+    position: absolute;
+    top: -25px;
+    left: -15px;
+    font-size: 1.2rem;
+    opacity: 0;
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 4s forwards;
+  }
+  
+  #section-home .text-zone p::after {
+    content: "</p>";
+    position: absolute;
+    bottom: -25px;
+    left: -15px;
+    font-size: 14px;
+    opacity: 0;
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 4s forwards;
+  }
+
+  .avatar-box img {
+    opacity: 0;
+    animation: fadeIn 2s 6.5s forwards;
+    max-width: 100%;
+    max-height: 85vh;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Enhanced Button Styling */
+  .link-button {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #08fdd8;
+    background: linear-gradient(45deg, transparent, rgba(8, 253, 216, 0.1), transparent);
+    transition: all 0.3s ease;
+  }
+
+  .link-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(8, 253, 216, 0.3), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+
+  .link-button:hover::before {
+    animation: buttonShine 0.6s ease-in-out;
+  }
+
+  .link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(8, 253, 216, 0.4);
+    border-color: #539cd4;
+  }
+
+  @keyframes buttonShine {
+    0% {
+      opacity: 0;
+      transform: rotate(45deg) translateX(-100%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(45deg) translateX(100%);
+    }
+  }
+
+  // ===========================================
+  // RESPONSIVE DESIGN FOR DESKTOP AND MOBILE
+  // ===========================================
+
+  // LARGE DESKTOP STYLES (1440px and above)
+  @media screen and (min-width: 1440px) {
+    #section-home {
+      padding: 4rem 4rem;
+    }
+    
+    .text-zone h1 {
+      font-size: 6rem;
+      line-height: 5.5rem;
+      letter-spacing: -5px;
+    }
+
+    .text-zone h1::after{
+      bottom: -80px;
+    }
+    
+    .text-zone{
+      padding-left: 6.5rem;
+    }
+    
+    .text-zone img {
+      width: 5rem;
+      height: 5rem;
+    }
+    
+    #section-home .text-zone p {
+      font-size: 22px;
+      letter-spacing: 4px;
+      margin-top: 7rem;
+    }
+    
+    .avatar-box::before {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  // DESKTOP STYLES (1024px to 1439px)
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    #section-home {
+      padding: 0 4rem;
+    }
+    
+    #section-home .text-zone {
+      width: 55%;
+      padding-left: 4rem;
+      padding-right: 2rem;
+      margin-top: 120px;
+    }
+    #section-home .text-zone h1::before{
+      font-weight: 100;
+      top: -30px;
+    }
+    #section-home .text-zone h1::after{
+      font-weight: 100;
+      bottom: -30px;
+    }
+    
+    #section-home .text-zone h1 {
+      font-size: 4.5rem;
+      line-height: 1.1;
+      letter-spacing: -4px;
+    }
+    
+    #section-home .text-zone img {
+      height: 4rem;
+      width: 4rem;
+    }
+    .link-button{
+      margin: 0px 0px 30px 0px;
+    }
+    #section-home .text-zone p {
+      margin-top: 4rem;
+      font-size: 15px;
+      letter-spacing: 3px;
+      margin-top: 4rem;
+    }
+    
+    .avatar-box {
+      width: 45%;
+      padding-right: 2rem;
+    }
+    
+    .avatar-box::before {
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  // TABLET STYLES (768px to 1023px)
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    #section-home {
+      flex-direction: column;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .text-zone {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 3rem;
+    }
+    
+    .text-zone h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+    }
+    
+    .text-zone img {
+      height: 3rem;
+      width: 3rem;
+    }
+    
+    #section-home .text-zone p {
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin-top: 2rem;
+    }
+    
+    .avatar-box {
+      position: static;
+      transform: none;
+      width: 100%;
+      height: auto;
+      max-height: 60vh;
+      padding: 0;
+    }
+    
+    .avatar-box::before {
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+  // MOBILE STYLES (481px to 767px)
+  @media screen and (min-width: 481px) and (max-width: 767px) {
+    #section-home {
+      flex-direction: column;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+    
+    .text-zone {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+    
+    .text-zone h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      letter-spacing: -2px;
+    }
+    
+    .text-zone img {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+    
+    #section-home .text-zone p {
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-top: 1.5rem;
+    }
+    
+    .avatar-box {
+      position: static;
+      transform: none;
+      width: 100%;
+      height: auto;
+      max-height: 50vh;
+      padding: 0;
+    }
+    
+    .avatar-box::before {
+      width: 220px;
+      height: 220px;
+    }
+  }
+
+  // SMALL MOBILE STYLES (480px and below)
+  @media screen and (max-width: 480px) {
+    #section-home {
+      flex-direction: column;
+      padding: 1rem 0.5rem;
+      text-align: center;
+    }
+    
+    .text-zone {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+    
+    .text-zone h1 {
+      font-size: 2.2rem;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+    
+    .text-zone img {
+      height: 2rem;
+      width: 2rem;
+    }
+    
+    #section-home .text-zone p {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      margin-top: 1rem;
+    }
+    
+    .avatar-box {
+      display: none; // Hide avatar on very small screens
+    }
+  }

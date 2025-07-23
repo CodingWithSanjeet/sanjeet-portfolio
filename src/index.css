@@ -1,13 +1,336 @@
 body {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  background: #1d1d1d;
+  display: block;
+  min-width: 320px;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  padding-left: 10rem;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  position: relative;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Beautiful Animated Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at top left, rgba(8, 253, 216, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at top right, rgba(83, 156, 212, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at center, rgba(253, 16, 86, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(8, 253, 216, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(83, 156, 212, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #1a1a1a 0%, #1d1d1d 25%, #242424 50%, #1d1d1d 75%, #1a1a1a 100%);
+  animation: backgroundShift 20s ease-in-out infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Floating Particles */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(8, 253, 216, 0.4), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(83, 156, 212, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(8, 253, 216, 0.5), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(253, 16, 86, 0.4), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(8, 253, 216, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: particleFloat 15s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Grid Pattern Overlay */
+.geometric-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(8, 253, 216, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 253, 216, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridPulse 8s ease-in-out infinite;
+  z-index: -3;
+  pointer-events: none;
+}
+
+/* Floating Orbs */
+.floating-orb {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8, 253, 216, 0.2), rgba(8, 253, 216, 0.05));
+  filter: blur(1px);
+  animation: floatOrb 12s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floating-orb:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-orb:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  top: 60%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(83, 156, 212, 0.2), rgba(83, 156, 212, 0.05));
+  animation-delay: 4s;
+}
+
+.floating-orb:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  bottom: 30%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(253, 16, 86, 0.15), rgba(253, 16, 86, 0.03));
+  animation-delay: 8s;
+}
+
+.section-full {
+  min-height: 100vh;
+  padding: 9rem 3rem 1rem 3rem;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.4s;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1300px) {
+  body {
+    padding-left: 0;
+  }
+}
+
+/* For Large Laptops and smaller desktops (1920px - 1441px) */
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+  .section-full {
+    padding: 8rem 4rem 1rem 4rem;
+  }
+}
+
+/* For Standard Laptops (1024px - 1440px) */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .section-full .text-zone {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .section-full {
+    padding: 7rem 3rem 1rem 3rem;
+  }
+  
+  body {
+    font-size: 1.2rem;
+  }
+}
+
+/* For Small Laptops and Tablets (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .section-full .text-zone {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .section-full {
+    padding: 6rem 2.5rem 1rem 2.5rem;
+  }
+  
+  body {
+    font-size: 1.15rem;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 480px) {
+  body {
+    /* background-color: red; */
+    font-size: 1rem;
+  }
+  .section-full .text-zone {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+  
+  /* Optimize background for mobile */
+  body::before {
+    animation-duration: 30s; /* Slower animation for better mobile performance */
+    background: 
+      radial-gradient(ellipse at top, rgba(8, 253, 216, 0.05) 0%, transparent 70%),
+      radial-gradient(ellipse at bottom, rgba(83, 156, 212, 0.05) 0%, transparent 70%),
+      linear-gradient(135deg, #1a1a1a 0%, #1d1d1d 50%, #1a1a1a 100%);
+  }
+  
+  body::after {
+    opacity: 0.3; /* Reduce particle visibility on mobile */
+    animation-duration: 20s;
+  }
+  
+  .floating-orb {
+    display: none; /* Hide floating orbs on mobile for performance */
+  }
+  
+  .geometric-background {
+    opacity: 0.3;
+    background-size: 30px 30px; /* Smaller grid on mobile */
+  }
+}
+
+/* For Low Resolution Tablets and Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    font-size: 1.5rem;
+  }
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1d1d1d;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #08fdd8, #539cd4);
+  border-radius: 10px;
+  border: 2px solid #1d1d1d;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #539cd4, #08fdd8);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(8, 253, 216, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #08fdd8;
+}
+
+::-webkit-scrollbar-corner {
+  background: #1d1d1d;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #08fdd8 #1d1d1d;
+}
+
+/* Background Animation Keyframes */
+@keyframes backgroundShift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 0%, 50% 50%, 0% 100%, 100% 100%;
+  }
+  25% {
+    background-position: 20% 10%, 80% 20%, 60% 40%, 10% 90%, 90% 80%;
+  }
+  50% {
+    background-position: 40% 20%, 60% 40%, 70% 30%, 20% 80%, 80% 70%;
+  }
+  75% {
+    background-position: 30% 30%, 70% 60%, 40% 60%, 30% 70%, 70% 60%;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-5px) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-20px) translateX(-10px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .floating-orb,
+  .geometric-background {
+    animation: none !important;
+  }
+  
+  body::before {
+    background: linear-gradient(135deg, #1a1a1a 0%, #1d1d1d 50%, #1a1a1a 100%);
+  }
+  
+  body::after {
+    opacity: 0.2;
+  }
+  
+  .floating-orb {
+    opacity: 0.3;
+  }
+}
+
+/* Performance optimization for older devices */
+@media (max-width: 768px) and (max-resolution: 150dpi) {
+  body::before {
+    animation-duration: 40s;
+  }
+  
+  body::after {
+    animation-duration: 25s;
+    opacity: 0.4;
+  }
+  
+  .geometric-background {
+    animation-duration: 12s;
+  }
 }

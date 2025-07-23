@@ -1,0 +1,80 @@
+@import "animate.css";
+// @import "~loaders.css/src/animations/pacman.scss";
+@font-face {
+  font-family: "La Belle Aurore";
+  src: url("./assets/fonts/LaBelleAurore.woff2") format("woff2"),
+    url("./assets/fonts/LaBelleAurore.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Coolvetica";
+  src: url("./assets/fonts/CoolveticaRg-Regular.woff2") format("woff2"),
+    url("./assets/fonts/CoolveticaRg-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.App {
+  position: relative;
+}
+
+// Custom Toast Styling to match portfolio theme
+.Toastify__toast-container {
+  z-index: 9999;
+}
+
+.Toastify__toast {
+  border-radius: 15px !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  
+  &--success {
+    background: linear-gradient(145deg, rgba(42, 42, 42, 0.95) 0%, rgba(31, 31, 31, 0.9) 100%) !important;
+    border: 1px solid #08fdd8 !important;
+    color: #fff !important;
+    
+    .Toastify__progress-bar {
+      background: linear-gradient(90deg, #08fdd8, #539cd4) !important;
+    }
+  }
+  
+  &--error {
+    background: linear-gradient(145deg, rgba(42, 42, 42, 0.95) 0%, rgba(31, 31, 31, 0.9) 100%) !important;
+    border: 1px solid #fd1056 !important;
+    color: #fff !important;
+    
+    .Toastify__progress-bar {
+      background: linear-gradient(90deg, #fd1056, #ff4444) !important;
+    }
+  }
+  
+  &--loading {
+    background: linear-gradient(145deg, rgba(42, 42, 42, 0.95) 0%, rgba(31, 31, 31, 0.9) 100%) !important;
+    border: 1px solid #539cd4 !important;
+    color: #fff !important;
+    
+    .Toastify__progress-bar {
+      background: linear-gradient(90deg, #539cd4, #08fdd8) !important;
+    }
+  }
+}
+
+.Toastify__close-button {
+  color: #fff !important;
+  opacity: 0.7;
+  
+  &:hover {
+    opacity: 1;
+    color: #08fdd8 !important;
+  }
+}
+
+.Toastify__progress-bar {
+  border-radius: 10px;
+  height: 4px !important;
+}

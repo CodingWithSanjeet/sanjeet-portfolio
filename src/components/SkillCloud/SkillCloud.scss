@@ -1,0 +1,66 @@
+#myCanvasContainer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  #myCanvas {
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+  
+  /* Responsive adjustments for laptop screens */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    #myCanvasContainer {
+      padding: 1rem;
+      min-height: 500px;
+    }
+    
+    #myCanvas {
+      width: 100%;
+      height: auto;
+      min-width: 600px;
+      min-height: 450px;
+    }
+  }
+  
+  @media (min-width: 1441px) and (max-width: 1600px) {
+    #myCanvasContainer {
+      padding: 1.5rem;
+      min-height: 550px;
+    }
+    
+    #myCanvas {
+      width: 100%;
+      height: auto;
+      min-width: 650px;
+      min-height: 500px;
+    }
+  }
+  
+  @media (min-width: 1601px) {
+    #myCanvasContainer {
+      padding: 2rem;
+      min-height: 600px;
+    }
+    
+    #myCanvas {
+    width: 100%;
+      height: auto;
+      min-width: 700px;
+      min-height: 550px;
+    }
+  }
+  
+  #tags li a {
+    font-family: "font-file-82132";
+  }
+  

@@ -1,0 +1,724 @@
+// =======================================
+// MODERN ATTRACTIVE CONTACT PAGE DESIGN (NO MAP)
+// =======================================
+
+.page-contact {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  
+  // Animated background particles
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(8, 253, 216, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(253, 16, 86, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(83, 156, 212, 0.05) 0%, transparent 50%);
+    animation: particleFloat 20s ease-in-out infinite;
+    z-index: 0;
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(120deg); }
+  66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+.page-contact .text-zone {
+  width: 100%;
+  max-width: 800px;
+  z-index: 2;
+  background: linear-gradient(145deg, rgba(29, 29, 29, 0.95) 0%, rgba(20, 20, 20, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(8, 253, 216, 0.1);
+  border-radius: 20px;
+  padding: 4rem;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 100px rgba(8, 253, 216, 0.1);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Enhanced glowing border animation
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #08fdd8, #539cd4, #fd1056, #08fdd8);
+    background-size: 400% 400%;
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: borderGlow 6s ease-in-out infinite;
+  }
+  
+  &:hover::before {
+    opacity: 0.4;
+  }
+  
+  // Hover lift effect
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 35px 70px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 0 150px rgba(8, 253, 216, 0.15);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+// =======================================
+// ENHANCED HEADER AND TEXT STYLING
+// =======================================
+
+.page-contact .text-zone header {
+  position: relative;
+  margin-bottom: 3rem;
+  text-align: center;
+  
+  h2 {
+    background: linear-gradient(135deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin: 0;
+    position: relative;
+    animation: textShimmer 4s ease-in-out infinite;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #08fdd8, transparent);
+      border-radius: 2px;
+      animation: underlineGlow 2s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes textShimmer {
+  0%, 100% { 
+    background-position: 0% 50%; 
+    filter: brightness(1);
+  }
+  50% { 
+    background-position: 100% 50%; 
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes underlineGlow {
+  0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleX(0.5); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+}
+
+// HTML Tag Styling
+.html-tag {
+  font-family: "La Belle Aurore", cursive;
+  color: #539cd4;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  display: block;
+  margin-bottom: 1rem;
+  
+  &.p-tag {
+    margin-top: 1.5rem;
+    animation-delay: 1.2s;
+  }
+}
+
+// Sequential content animation with visibility control
+.content-section {
+  transition: all 0.8s ease;
+  
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    animation: contentFadeIn 0.8s ease forwards;
+  }
+}
+
+@keyframes contentFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.page-contact .text-zone p {
+  position: relative;
+  margin-bottom: 3rem;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #b8b8b8;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  
+  &::before {
+    content: "<p>";
+    position: absolute;
+    top: -20px;
+  }
+}
+
+@keyframes pulseBar {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) scaleX(0.8); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.1); }
+}
+
+// =======================================
+// MODERN CONTACT FORM STYLING
+// =======================================
+
+.contact-form {
+  width: 100%;
+  padding-top: 2rem;
+  display: block;
+  position: relative;
+}
+
+.contact-form form {
+  position: relative;
+  
+  &::before {
+    content: "<form>";
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    font-size: 16px;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    opacity: 0;
+    animation: fadeInUp 1s 0.5s forwards;
+  }
+  
+  &::after {
+    display: block !important;
+    content: "</form>";
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    font-size: 16px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    animation: fadeInUp 1s 1s forwards;
+  }
+}
+
+.contact-form ul {
+  padding: 0;
+  margin: 0;
+}
+
+.contact-form ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-bottom: 25px;
+  overflow: hidden;
+  display: block;
+  clear: both;
+  position: relative;
+  animation: slideInLeft 0.8s ease forwards;
+  animation-delay: calc(var(--delay, 0) * 0.15s);
+  
+  &:nth-child(1) { --delay: 1; }
+  &:nth-child(2) { --delay: 2; }
+  &:nth-child(3) { --delay: 3; }
+  &:nth-child(4) { --delay: 4; }
+  &:nth-child(5) { --delay: 5; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.contact-form ul li.half {
+  width: 48%;
+  margin-right: 4%;
+  float: left;
+  clear: none;
+  
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+
+// =======================================
+// HOSHI BORDER FILL EFFECT (USER REFERENCE)
+// =======================================
+
+.input__label--hoshi {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+
+.input__label--hoshi::before,
+.input__label--hoshi::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.input__label--hoshi::after {
+  margin-top: 2px;
+  border-bottom: 3px solid #08fdd8;
+  background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
+  height: 3px;
+  border: none;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.2s; // Attractive delay
+}
+
+.input__label--hoshi-color-2::after {
+  background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
+  border: none;
+}
+
+.input__field--hoshi:focus + .input__label--hoshi::after,
+.input--filled .input__label--hoshi::after {
+  transform: translate3d(0, 0, 0);
+}
+
+// Preview effect on hover
+.input__field--hoshi:hover:not(:focus) + .input__label--hoshi::after {
+  transform: translate3d(-75%, 0, 0); // 25% visible
+  transition-delay: 0.1s; // Preview delay
+}
+
+// =======================================
+// GREATLY ENHANCED INPUT STYLING
+// =======================================
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+  width: 100%;
+  border: 0;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
+  height: 65px;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 25px;
+  box-sizing: border-box;
+  border-radius: 0; // No border radius
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  
+  // Enhanced focus effects
+  &:focus {
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(145deg, #2d2d2d 0%, #222 100%);
+    color: #fff;
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 12px 35px rgba(8, 253, 216, 0.25),
+      0 0 0 1px rgba(8, 253, 216, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px) scale(1.02);
+  }
+  
+  // Enhanced hover effects
+  &:hover:not(:focus) {
+    border-color: rgba(8, 253, 216, 0.3);
+    background: linear-gradient(145deg, #2c2c2c 0%, #202020 100%);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 8px 20px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(8, 253, 216, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  &::placeholder {
+    color: #888;
+    transition: all 0.3s ease;
+    font-weight: 400;
+  }
+  
+  &:focus::placeholder {
+    opacity: 0.6;
+    transform: translateX(5px);
+  }
+}
+
+.contact-form textarea {
+  width: 100%;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
+  min-height: 180px;
+  font-size: 16px;
+  color: #fff;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  resize: vertical;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  line-height: 1.6;
+  font-family: "Open Sans", sans-serif;
+  
+  &:focus {
+    outline: none;
+    background: linear-gradient(145deg, #2d2d2d 0%, #222 100%);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 12px 35px rgba(8, 253, 216, 0.25),
+      0 0 0 1px rgba(8, 253, 216, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px) scale(1.01);
+  }
+  
+  &:hover:not(:focus) {
+    border-color: rgba(8, 253, 216, 0.3);
+    background: linear-gradient(145deg, #2c2c2c 0%, #202020 100%);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 8px 20px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(8, 253, 216, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  &::placeholder {
+    color: #888;
+    font-style: italic;
+    transition: all 0.3s ease;
+  }
+  
+  &:focus::placeholder {
+    opacity: 0.6;
+    transform: translateY(-2px);
+  }
+}
+
+// =======================================
+// SPECTACULAR SUBMIT BUTTON
+// =======================================
+
+.contact-form .flat-button {
+  float: none;
+  margin: 40px auto 0;
+  display: block;
+}
+
+.flat-button {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: 70px;
+  line-height: 70px;
+  display: block;
+  text-align: center;
+  background: linear-gradient(135deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
+  background-size: 200% 200%;
+  border-radius: 35px;
+  box-shadow: 
+    0 12px 30px rgba(8, 253, 216, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  cursor: pointer;
+  
+  // Animated background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  // Spectacular hover effects
+  &:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-position: 100% 50%;
+    box-shadow: 
+      0 20px 50px rgba(8, 253, 216, 0.5),
+      0 0 30px rgba(253, 16, 86, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    
+    &::before {
+      left: 100%;
+    }
+    
+    .text {
+      transform: scale(1.1);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+  }
+  
+  // Active state
+  &:active {
+    transform: translateY(-2px) scale(1.02);
+    transition: transform 0.1s ease;
+  }
+  
+  // Focus state for accessibility
+  &:focus {
+    outline: none;
+    box-shadow: 
+      0 20px 50px rgba(8, 253, 216, 0.5),
+      0 0 0 4px rgba(8, 253, 216, 0.3);
+  }
+}
+
+.flat-button div {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 35px;
+}
+
+.flat-button span.bg {
+  display: none;
+}
+
+.flat-button span.text {
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.flat-button span.base {
+  display: none;
+}
+
+// =======================================
+// ENHANCED CONTACT ELEMENTS
+// =======================================
+
+.modern-form {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    border-radius: 2px;
+    animation: pulseWidth 3s ease-in-out infinite;
+  }
+}
+
+@keyframes pulseWidth {
+  0%, 100% { width: 60px; opacity: 0.6; }
+  50% { width: 120px; opacity: 1; }
+}
+
+.modern-input-group {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #08fdd8, #539cd4);
+    border-radius: 2px;
+    transition: height 0.4s ease;
+    z-index: 1;
+  }
+  
+  &:hover::before,
+  &:focus-within::before {
+    height: 80%;
+  }
+}
+
+.modern-submit-group {
+  text-align: center;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #08fdd8, #539cd4, #fd1056, transparent);
+    border-radius: 1px;
+    opacity: 0;
+    animation: submitDivider 1s 0.8s ease forwards;
+  }
+}
+
+@keyframes submitDivider {
+  to { opacity: 0.8; }
+}
+
+// =======================================
+// RESPONSIVE DESIGN
+// =======================================
+
+@media (max-width: 1024px) {
+  .page-contact .text-zone {
+    max-width: 700px;
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-contact {
+    padding: 1rem;
+  }
+  
+  .page-contact .text-zone {
+    max-width: 100%;
+    padding: 2.5rem;
+    border-radius: 15px;
+  }
+  
+  .text-zone header h2 {
+    font-size: 3rem;
+  }
+  
+  .contact-form ul li.half {
+    width: 100%;
+    margin-right: 0;
+    float: none;
+  }
+  
+  .flat-button {
+    max-width: 250px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-contact .text-zone {
+    padding: 2rem 1.5rem;
+  }
+  
+  .text-zone header h2 {
+    font-size: 2.5rem;
+  }
+  
+  .text-zone p {
+    font-size: 1.1rem;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    height: 55px;
+    padding: 0 20px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  
+  .contact-form textarea {
+    min-height: 140px;
+    padding: 20px;
+  }
+  
+  .flat-button {
+    max-width: 220px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+}
+
+// =======================================
+// UTILITY ANIMATIONS
+// =======================================
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+  
+  

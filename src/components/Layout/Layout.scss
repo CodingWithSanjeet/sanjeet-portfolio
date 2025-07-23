@@ -1,0 +1,175 @@
+.mbtn {
+    display: none;
+  }
+  
+  #sound {
+    border-radius: 3px;
+    padding: 5px;
+    right: 20px;
+    position: fixed;
+    z-index: 999999;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    pointer-events: none;
+    background: rgba(61, 57, 57, 0.8);
+  }
+  
+  #sound svg {
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  #sound span {
+    transition: none;
+    margin-left: 5px;
+    pointer-events: auto;
+  }
+  
+  #sound .sound-cloud-on {
+    color: #08fdd8;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  #sound .sound-cloud-off {
+    color: #fd1056;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .page-outer {
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .tags {
+  color: #6193ac;
+  left: 4rem;
+  font-style: italic;
+  font-size: 18px;
+  font-family: "La Belle Aurore", cursive;
+}
+
+.top-tags {
+  position: absolute;
+  bottom: auto;
+  top: 2rem;
+  opacity: 0;
+  animation: fadeIn 1s 4s forwards;
+}
+  
+  .top-tags::after {
+    content: "<body>";
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s 4s forwards;
+  }
+  
+  .bottom-tags {
+  position: relative;
+  bottom: auto;
+  top: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+  
+  .bottom-tags::before {
+  content: "</body>";
+  font-family: "La Belle Aurore", cursive;
+  color: #539cd4;
+  font-size: 18px;
+  position: absolute;
+  margin-left: 2rem;
+  opacity: 0;
+  animation: fadeIn 1s 4s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+  
+  /* For Mobile Devices */
+  @media screen and (max-width: 480px) {
+    .mbtn {
+      width: 1.5rem;
+      height: 1.5rem;
+      cursor: pointer;
+    }
+    canvas {
+      width: 550px !important;
+      height: 550px;
+    }
+  
+    .tags {
+      left: 0.5rem !important;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .tags {
+      left: 2rem;
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    .mbtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 5px;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    .tags {
+      left: 1.5rem;
+      font-size: 14px;
+    }
+  
+    .top-tags::after {
+      font-size: 14px;
+      margin-left: 0.5rem;
+    }
+    // .mbtn svg {
+    //   width: 3rem;
+    // }
+  
+    .bottom-tags::before {
+      font-size: 14px;
+      margin-left: 0.5rem;
+    }
+  
+    .mobileOpen .main-menu > * {
+      opacity: 1;
+    }
+    .mobileOpen .main-menu {
+      transition: visibility 0s 0s, z-index 0s 0s;
+      z-index: 99;
+      opacity: 1;
+    }
+  
+    #sound {
+      top: 1rem;
+      right: auto;
+      left: 10px;
+      font-size: 15px;
+      background: #1d1d1d;
+    }
+  }
+  

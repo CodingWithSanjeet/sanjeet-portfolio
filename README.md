@@ -3,7 +3,7 @@
 A modern, responsive portfolio website built with React and TypeScript, showcasing professional experience, skills, and projects with stunning animations and a comprehensive resume template.
 
 ![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge&logo=netlify&logoColor=white)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/12345678-1234-1234-1234-123456789012/deploy-status)](https://sanjeet-kumar-portfolio.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/99ed6bff-9c0b-42d9-ac5f-af317ad50824/deploy-status)](https://app.netlify.com/projects/sanjeet-kumar-nitt/deploys)
 
 ## ✨ Features
 

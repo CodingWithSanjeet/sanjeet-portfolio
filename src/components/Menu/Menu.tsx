@@ -10,15 +10,15 @@ type MenuProps = {
 
 const Menu = ({ onMenuItemCLick }: MenuProps) => {
   return (
-    <menu className="main-menu">
+    <menu className="main-menu" id="main-navigation" role="navigation" aria-label="Main navigation">
       <div className="main-menu__top">
-        <Link className="logo" to="/" onClick={() => onMenuItemCLick("close")}>
-          <img src={logoS} alt="logo" height="100" width="80" />
+        <Link className="logo" to="/" onClick={() => onMenuItemCLick("close")} aria-label="Go to home page">
+          <img src={logoS} alt="Sanjeet logo" height="100" width="80" />
           <span>{menuData.title}</span>
         </Link>
         <span>{menuData.description}</span>
       </div>
-      <nav className="main-menu__nav">
+      <nav className="main-menu__nav" role="navigation" aria-label="Main menu">
         {menuData.menuItems.map((item) => (
           <NavLink
             key={item.name}

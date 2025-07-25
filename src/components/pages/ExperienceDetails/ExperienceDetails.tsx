@@ -85,7 +85,7 @@ const ExperienceDetails = () => {
   return (
     <section className="section-full page-experience-details">
       <div className="text-zone">
-        <header>
+        {/* <header>
           <HeaderTwo
             aria-label={`${experience.companyName} Experience`}
             fontsize="4.5rem"
@@ -95,7 +95,7 @@ const ExperienceDetails = () => {
           >
             {experience.companyName}
           </HeaderTwo>
-        </header>
+        </header> */}
 
         {/* Render content with visibility control */}
         <div className={`content-section ${showContent ? "visible" : "hidden"}`}>

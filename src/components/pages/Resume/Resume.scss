@@ -54,11 +54,9 @@
     }
   }
 
-  .contact-info {
-    .contact-grid {
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 0.4rem 1rem !important;
-    }
+  .contact-info .contact-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.4rem 1rem !important;
     
     .contact-link {
       color: #333 !important;
@@ -82,28 +80,32 @@
   }
 }
 
+// Base Styles (Mobile-first)
 .page-resume {
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #fff;
-  padding: 2rem;
+  padding: 1rem 0.5rem; // Mobile-first padding
   font-family: 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
 
   // Resume Controls
   .resume-controls {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
+    position: relative; // Mobile-first: relative positioning
+    top: auto;
+    right: auto;
     z-index: 1000;
     display: flex;
-    gap: 1rem;
+    flex-direction: column; // Mobile-first: stack vertically
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 
     .control-btn {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
+      padding: 0.6rem 1rem; // Mobile-first: smaller padding
       background: linear-gradient(135deg, #08fdd8 0%, #09d3ac 100%);
       color: #1a1a1a;
       border: none;
@@ -111,7 +113,8 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      font-size: 0.9rem;
+      font-size: 0.8rem; // Mobile-first: smaller font
+      width: 100%; // Mobile-first: full width
 
       &:hover {
         transform: translateY(-2px);
@@ -119,93 +122,123 @@
       }
 
       .btn-icon {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
     }
   }
 
   .resume-container {
-    max-width: 210mm; // A4 width
+    max-width: 100%; // Mobile-first: full width
     margin: 0 auto;
     background: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-radius: 10px; // Mobile-first: smaller radius
+    padding: 1rem; // Mobile-first: smaller padding
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  // Header Section
-  .resume-header {
-    border-bottom: 2px solid #08fdd8;
-    padding-bottom: 2rem;
-    margin-bottom: 3rem;
+     // Header Section
+   .resume-header {
+     border-bottom: 2px solid #08fdd8;
+     padding-bottom: 1.5rem;
+     margin-bottom: 2rem;
 
-    .header-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
-    }
+     .header-content {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       align-items: center; // Mobile-first: center alignment
+       text-align: center; // Mobile-first: center text
+       gap: 1.2rem; // Mobile-first: better gap
+     }
 
-    .name-title {
-      flex: 1;
+     .name-title {
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       text-align: center;
+
+       h1 {
+         font-size: 2rem; // Mobile-first: appropriate size
+         margin: 0 0 0.3rem 0;
+         color: #08fdd8;
+         font-weight: 700;
+         line-height: 1.2;
+         text-shadow: 0 0 20px rgba(8, 253, 216, 0.3);
+         letter-spacing: 1px;
+       }
 
       .job-title {
-        font-size: 1.5rem;
-        color: #ff6b6b;
-        margin: 0.5rem 0 0 0;
-        font-weight: 300;
-        letter-spacing: 1px;
-      }
-    }
-
-    .contact-info {
-      font-size: 0.95rem;
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.8rem 1.5rem;
-        align-items: center;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: #ccc;
-        text-decoration: none;
-        transition: color 0.3s ease;
-
-        .contact-icon {
-          font-size: 1rem;
-          width: 20px;
-          text-align: center;
+          font-size: 1rem; // Mobile-first: smaller than name for hierarchy
+          color: #ff6b6b;
+          margin: 0;
+          font-weight: 400;
+          letter-spacing: 0.5px;
+          line-height: 1.3;
+          text-shadow: 0 0 15px rgba(255, 107, 107, 0.2);
+          opacity: 0.9;
         }
+     }
 
-        &.contact-link {
-          color: #08fdd8;
-          cursor: pointer;
+      .contact-info {
+       font-size: 0.9rem;
+       width: 100%;
+       margin-top: 1rem;
+       text-align: center;
+       color: #e0e0e0;
 
-          &:hover {
-            color: #ff6b6b;
-            text-decoration: underline;
-          }
-        }
-      }
-    }
+       .contact-grid {
+         display: block;
+         margin: 0;
+         padding: 0;
+       }
+
+       .contact-item {
+         display: inline;
+         color: #e0e0e0;
+         text-decoration: none;
+         font-size: 0.9rem;
+         
+         .contact-icon {
+           display: none; // Hide all icons
+         }
+
+         .contact-text {
+           display: inline;
+           color: inherit;
+           font-weight: normal;
+         }
+
+         &.contact-link {
+           color: #e0e0e0;
+           text-decoration: none;
+           
+           &:hover {
+             color: #e0e0e0;
+             text-decoration: none;
+           }
+         }
+
+         // Add separators between contact items
+         &:not(:last-child):after {
+           content: ' | ';
+           color: #666;
+           margin: 0 0.5rem;
+         }
+       }
+     }
   }
 
   // Section Styling
   .resume-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem; // Mobile-first: smaller margin
 
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.2rem; // Mobile-first: smaller font
       color: #08fdd8;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid rgba(8, 253, 216, 0.3);
       font-weight: 600;
@@ -217,8 +250,8 @@
   // Summary Section
   .summary-section {
     .summary-text {
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 0.95rem; // Mobile-first: smaller font
+      line-height: 1.6;
       color: #e0e0e0;
       text-align: justify;
     }
@@ -227,31 +260,32 @@
   // Experience Section
   .experience-section {
     .experience-item {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem; // Mobile-first: smaller padding
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
+      border-radius: 10px;
       border-left: 4px solid #ff6b6b;
 
       .job-header {
         display: flex;
+        flex-direction: column; // Mobile-first: stack vertically
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 1rem;
-        gap: 1rem;
+        gap: 0.5rem;
 
         .job-title-company {
           flex: 1;
 
           .job-position {
-            font-size: 1.3rem;
+            font-size: 1.1rem; // Mobile-first: smaller font
             color: #08fdd8;
             margin: 0 0 0.3rem 0;
             font-weight: 600;
           }
 
           .company-name {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #ff6b6b;
             font-weight: 500;
           }
@@ -260,9 +294,9 @@
         .job-meta {
           display: flex;
           flex-direction: column;
-          align-items: flex-end;
+          align-items: flex-start; // Mobile-first: left align
           gap: 0.2rem;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           color: #ccc;
 
           .job-duration {
@@ -277,34 +311,35 @@
 
         .responsibility-item {
           position: relative;
-          padding-left: 1.5rem;
+          padding-left: 1.2rem; // Mobile-first: smaller padding
           margin-bottom: 0.5rem;
           color: #e0e0e0;
+          font-size: 0.85rem; // Mobile-first: smaller font
 
           &:before {
             content: '▶';
             position: absolute;
             left: 0;
             color: #08fdd8;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
           }
 
-          // Special styling for awards and achievements in main responsibilities
           &.award-item {
             background: rgba(8, 253, 216, 0.1);
-            padding: 0.6rem 0.6rem 0.6rem 1.5rem;
+            padding: 0.5rem 0.5rem 0.5rem 1.2rem;
             border-radius: 6px;
             border-left: 3px solid #08fdd8;
-            margin: 0.6rem 0;
+            margin: 0.4rem 0;
             color: #08fdd8;
             font-weight: 500;
+            font-size: 0.8rem;
 
             &:before {
               color: #08fdd8;
               content: '★';
               top: 50%;
               transform: translateY(-50%);
-              font-size: 1rem;
+              font-size: 0.9rem;
             }
           }
         }
@@ -312,14 +347,14 @@
 
       // Client Work Section
       .client-work-section {
-        margin-top: 1.5rem;
-        padding-top: 1rem;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
         border-top: 1px solid rgba(8, 253, 216, 0.2);
 
         .client-work-title {
-          font-size: 1rem;
+          font-size: 0.9rem;
           color: #08fdd8;
-          margin-bottom: 1rem;
+          margin-bottom: 0.8rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.5px;
@@ -328,13 +363,13 @@
         .clients-list {
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          gap: 1rem;
         }
 
         .client-item {
           background: rgba(255, 255, 255, 0.03);
           border-radius: 8px;
-          padding: 1.2rem;
+          padding: 1rem;
           border-left: 3px solid #ff6b6b;
           position: relative;
 
@@ -345,23 +380,24 @@
 
           .client-header {
             display: flex;
+            flex-direction: column; // Mobile-first: stack vertically
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.8rem;
-            gap: 1rem;
+            margin-bottom: 0.6rem;
+            gap: 0.5rem;
 
             .client-info {
               flex: 1;
 
               .client-name {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 color: #ff6b6b;
                 margin: 0 0 0.3rem 0;
                 font-weight: 600;
               }
 
               .client-role {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
                 color: #08fdd8;
                 font-weight: 500;
                 font-style: italic;
@@ -370,52 +406,52 @@
 
             .client-duration {
               color: #ccc;
-              font-size: 0.85rem;
+              font-size: 0.8rem;
               font-weight: 500;
-              text-align: right;
+              text-align: left; // Mobile-first: left align
             }
           }
 
           .client-responsibilities {
             list-style: none;
             padding: 0;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
 
-                       .client-responsibility-item {
-             position: relative;
-             padding-left: 1.2rem;
-             margin-bottom: 0.4rem;
-             color: #e0e0e0;
-             font-size: 0.9rem;
-             line-height: 1.4;
+            .client-responsibility-item {
+              position: relative;
+              padding-left: 1rem;
+              margin-bottom: 0.4rem;
+              color: #e0e0e0;
+              font-size: 0.8rem;
+              line-height: 1.4;
 
-             &:before {
-               content: '•';
-               position: absolute;
-               left: 0;
-               color: #ff6b6b;
-               font-weight: bold;
-             }
+              &:before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: #ff6b6b;
+                font-weight: bold;
+              }
 
-             // Special styling for awards and achievements
-             &.award-item {
-               background: rgba(8, 253, 216, 0.1);
-               padding: 0.6rem 0.6rem 0.6rem 1.2rem;
-               border-radius: 6px;
-               border-left: 3px solid #08fdd8;
-               margin: 0.6rem 0;
-               color: #08fdd8;
-               font-weight: 500;
+              &.award-item {
+                background: rgba(8, 253, 216, 0.1);
+                padding: 0.5rem 0.5rem 0.5rem 1rem;
+                border-radius: 6px;
+                border-left: 3px solid #08fdd8;
+                margin: 0.4rem 0;
+                color: #08fdd8;
+                font-weight: 500;
+                font-size: 0.75rem;
 
-               &:before {
-                 color: #08fdd8;
-                 content: '★';
-                 top: 50%;
-                 transform: translateY(-50%);
-                 font-size: 1rem;
-               }
-             }
-           }
+                &:before {
+                  color: #08fdd8;
+                  content: '★';
+                  top: 50%;
+                  transform: translateY(-50%);
+                  font-size: 0.9rem;
+                }
+              }
+            }
           }
 
           .client-technologies {
@@ -423,7 +459,7 @@
 
             .tech-label {
               color: #08fdd8;
-              font-size: 0.8rem;
+              font-size: 0.75rem;
               font-weight: 600;
               text-transform: uppercase;
               letter-spacing: 0.5px;
@@ -434,14 +470,14 @@
             .client-tech-tags {
               display: flex;
               flex-wrap: wrap;
-              gap: 0.4rem;
+              gap: 0.3rem;
 
               .client-tech-tag {
                 background: rgba(8, 253, 216, 0.1);
                 color: #08fdd8;
-                padding: 0.2rem 0.6rem;
-                border-radius: 12px;
-                font-size: 0.75rem;
+                padding: 0.2rem 0.5rem;
+                border-radius: 10px;
+                font-size: 0.7rem;
                 font-weight: 500;
                 border: 1px solid rgba(8, 253, 216, 0.3);
                 transition: all 0.3s ease;
@@ -458,12 +494,12 @@
     }
   }
 
-  // Two Column Layout
+  // Two Column Layout (Mobile-first: single column)
   .two-column-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 2rem;
+    grid-template-columns: 1fr; // Mobile-first: single column
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   // Skills Section
@@ -471,28 +507,28 @@
     .skills-grid {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .skill-category {
       .skill-category-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: #ff6b6b;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.6rem;
         font-weight: 600;
       }
 
       .skill-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 0.4rem;
 
         .skill-tag {
           background: linear-gradient(135deg, #08fdd8 0%, #09d3ac 100%);
           color: #1a1a1a;
-          padding: 0.4rem 0.8rem;
-          border-radius: 20px;
-          font-size: 0.85rem;
+          padding: 0.3rem 0.6rem;
+          border-radius: 15px;
+          font-size: 0.75rem;
           font-weight: 500;
           transition: all 0.3s ease;
 
@@ -510,17 +546,17 @@
     .projects-list {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .project-item {
-      padding: 1.2rem;
+      padding: 1rem;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
+      border-radius: 8px;
       border-left: 3px solid #08fdd8;
 
       .project-name {
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: #08fdd8;
         margin: 0 0 0.5rem 0;
         font-weight: 600;
@@ -529,50 +565,52 @@
       .project-description {
         color: #e0e0e0;
         margin-bottom: 1rem;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         line-height: 1.5;
       }
 
       .project-tech {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem;
+        gap: 0.3rem;
 
         .tech-tag {
           background: rgba(255, 107, 107, 0.2);
           color: #ff6b6b;
-          padding: 0.3rem 0.6rem;
-          border-radius: 15px;
-          font-size: 0.8rem;
+          padding: 0.25rem 0.5rem;
+          border-radius: 12px;
+          font-size: 0.7rem;
           border: 1px solid rgba(255, 107, 107, 0.3);
         }
       }
     }
   }
 
-  // Bottom Sections
+  // Bottom Sections (Mobile-first: single column)
   .bottom-sections {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr; // Mobile-first: single column
+    gap: 1.5rem;
   }
 
   // Education Section
   .education-section {
     .education-item {
-      padding: 1.2rem;
+      padding: 1rem;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
+      border-radius: 8px;
       border-left: 3px solid #ff6b6b;
 
       .edu-header {
         display: flex;
+        flex-direction: column; // Mobile-first: stack vertically
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 0.5rem;
+        gap: 0.3rem;
 
         .degree {
-          font-size: 1.1rem;
+          font-size: 1rem;
           color: #08fdd8;
           margin: 0;
           font-weight: 600;
@@ -580,24 +618,27 @@
 
         .edu-duration {
           color: #ccc;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           font-weight: 500;
         }
       }
 
       .edu-details {
         display: flex;
+        flex-direction: column; // Mobile-first: stack vertically
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+        gap: 0.3rem;
 
         .institution {
           color: #ff6b6b;
           font-weight: 500;
+          font-size: 0.9rem;
         }
 
         .gpa {
           color: #08fdd8;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           font-weight: 600;
         }
       }
@@ -609,43 +650,497 @@
     .certifications-list {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.8rem;
     }
 
     .certification-item {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
+      padding: 0.8rem;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
+      border-radius: 6px;
       border-left: 3px solid #08fdd8;
 
       .cert-name {
         font-weight: 600;
         color: #08fdd8;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.2rem;
+        font-size: 0.9rem;
       }
 
       .cert-issuer {
         color: #ff6b6b;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         margin-bottom: 0.2rem;
       }
 
       .cert-date {
         color: #ccc;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
     }
   }
+}
 
-  // Responsive Design
-  // Large Laptops (1441px - 1920px)
-  @media screen and (min-width: 1441px) and (max-width: 1920px) {
-    padding: 6rem 3rem;
+/* ==========================================================================
+   MEDIA QUERIES - Mobile First Approach
+   ========================================================================== */
+
+/* Small Mobile Devices (480px and up) */
+@media screen and (max-width: 480px) {
+  .page-resume {
+    padding: 1.5rem 1rem;
+    
+    .resume-controls {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 999;
+      flex-direction: row;
+      gap: 0;
+      justify-content: flex-end;
+      margin-bottom: 0;
+      
+      .control-btn {
+        width: auto;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.7rem;
+        border-radius: 20px;
+        min-width: auto;
+        
+        // Hide print button on mobile - show only download PDF
+        &:first-child {
+          display: none;
+        }
+        
+        // Style download PDF button to be compact
+        &:last-child {
+          .btn-icon {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .resume-section{
+      margin-bottom: 0;
+    }
+    
+    .resume-container {
+      padding: 1.2rem;
+      border-radius: 12px;
+    }
+    
+    .resume-header {
+       .name-title {
+         h2 {
+           font-size: 2.5rem;
+           text-shadow: 0 0 25px rgba(8, 253, 216, 0.4);
+         }
+         
+      .job-title {
+            font-size: 0.75rem; // Scaled up from 0.95rem base
+            letter-spacing: 0.8px;
+            text-shadow: 0 0 18px rgba(255, 107, 107, 0.3);
+          }
+       }
+       
+       .contact-info {
+         font-size: 0.85rem;
+       }
+     }
+    
+    .experience-item {
+      padding: 1.2rem;
+      
+      .responsibilities .responsibility-item {
+        font-size: 0.9rem;
+        
+        &.award-item {
+          font-size: 0.85rem;
+        }
+      }
+      
+      .client-work-section {
+        .client-item {
+          .client-tech-tags .client-tech-tag {
+            font-size: 0.72rem;
+          }
+        }
+      }
+    }
+
+    .tech-tags{
+      .tech-tag{
+       min-height: 18px;
+      }
+    }
+    .section-title{
+      &::before{
+        display: none;
+      }
+    }
+  }
+}
+
+/* Tablets (768px and up) */
+@media (min-width: 768px) {
+  .page-resume {
+    padding: 2rem 1.5rem;
+    
+    .resume-controls {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    
+    .resume-container {
+      padding: 1.5rem;
+      border-radius: 15px;
+    }
+    
+                          .resume-header {
+       .header-content {
+         gap: 1.5rem;
+       }
+       
+       .name-title {
+         h1 {
+           font-size: 2.5rem;
+           text-shadow: 0 0 30px rgba(8, 253, 216, 0.5);
+         }
+         
+                   .job-title {
+            font-size: 1.2rem; // Scaled up appropriately from mobile base
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+          }
+       }
+       
+       .contact-info {
+         font-size: 0.9rem;
+       }
+     }
+    
+    .resume-section .section-title {
+      font-size: 1.3rem;
+    }
+    
+    .summary-section .summary-text {
+      font-size: 1rem;
+    }
+    
+    .experience-item {
+      .job-header {
+        flex-direction: row;
+        gap: 1rem;
+        
+        .job-meta {
+          align-items: flex-end;
+        }
+      }
+      
+      .client-work-section {
+        .client-item {
+          .client-header {
+            flex-direction: row;
+            gap: 1rem;
+            
+            .client-duration {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    
+    .two-column-layout {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .bottom-sections {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+}
+
+/* Small Laptops (1024px and up) */
+@media (min-width: 1024px) {
+  .page-resume {
+    padding: 3rem 2rem;
+    
+    .resume-controls {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      flex-direction: row;
+      margin-bottom: 0;
+      
+      .control-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    .resume-container {
+      max-width: 210mm; // A4 width
+      padding: 2rem;
+      border-radius: 20px;
+     }
+     
+     .resume-header {
+       padding-bottom: 2rem;
+       margin-bottom: 2.5rem;
+       
+       .header-content {
+         flex-direction: column;
+         gap: 1.5rem;
+         align-items: center;
+         text-align: center;
+       }
+       
+       .name-title {
+         h1 {
+           font-size: 3rem;
+           margin-bottom: 0.5rem;
+           color: #08fdd8;
+           font-weight: 700;
+         }
+         
+         .job-title {
+           font-size: 1.5rem;
+           margin-top: 0.8rem;
+           letter-spacing: 1.5px;
+         }
+       }
+       
+       .contact-info {
+         font-size: 0.95rem;
+       }
+     }
+    
+    .resume-section {
+      margin-bottom: 2.5rem;
+      
+      .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+    
+    .summary-section .summary-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    .experience-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      
+      .job-header .job-title-company .job-position {
+        font-size: 1.3rem;
+      }
+      
+      .responsibilities .responsibility-item {
+        padding-left: 1.5rem;
+        font-size: 1rem;
+        
+        &.award-item {
+          padding: 0.6rem 0.6rem 0.6rem 1.5rem;
+          font-size: 1rem;
+          
+          &:before {
+            font-size: 1rem;
+          }
+        }
+      }
+      
+      .client-work-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        
+        .client-work-title {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+        }
+        
+        .clients-list {
+          gap: 1.5rem;
+        }
+        
+        .client-item {
+          padding: 1.2rem;
+          
+          .client-header {
+            margin-bottom: 0.8rem;
+            
+            .client-info {
+              .client-name {
+                font-size: 1.1rem;
+              }
+              
+              .client-role {
+                font-size: 0.95rem;
+              }
+            }
+            
+            .client-duration {
+              font-size: 0.85rem;
+            }
+          }
+          
+          .client-responsibilities {
+            margin-bottom: 1rem;
+            
+            .client-responsibility-item {
+              padding-left: 1.2rem;
+              font-size: 0.9rem;
+              
+              &.award-item {
+                padding: 0.6rem 0.6rem 0.6rem 1.2rem;
+                margin: 0.6rem 0;
+                font-size: 0.9rem;
+                
+                &:before {
+                  font-size: 1rem;
+                }
+              }
+            }
+          }
+          
+          .client-tech-tags .client-tech-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+          }
+        }
+      }
+    }
+    
+    .two-column-layout,
+    .bottom-sections {
+      gap: 3rem;
+    }
+    
+    .skills-section {
+      .skills-grid {
+        gap: 1.5rem;
+      }
+      
+      .skill-category {
+        .skill-category-title {
+          font-size: 1.1rem;
+          margin-bottom: 0.8rem;
+        }
+        
+        .skill-tags {
+          gap: 0.5rem;
+          
+          .skill-tag {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+    
+    .projects-section {
+      .projects-list {
+        gap: 1.5rem;
+      }
+      
+      .project-item {
+        padding: 1.2rem;
+        
+        .project-name {
+          font-size: 1.1rem;
+        }
+        
+        .project-description {
+          font-size: 0.9rem;
+        }
+        
+        .project-tech {
+          gap: 0.4rem;
+          
+          .tech-tag {
+            padding: 0.3rem 0.6rem;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+    
+    .education-section {
+      .education-item {
+        padding: 1.2rem;
+        
+        .edu-header {
+          flex-direction: row;
+          margin-bottom: 0.5rem;
+          
+          .degree {
+            font-size: 1.1rem;
+          }
+          
+          .edu-duration {
+            font-size: 0.9rem;
+          }
+        }
+        
+        .edu-details {
+          flex-direction: row;
+          
+          .institution {
+            font-size: 1rem;
+          }
+          
+          .gpa {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+    
+    .certifications-section {
+      .certifications-list {
+        gap: 1rem;
+      }
+      
+      .certification-item {
+        padding: 1rem;
+        
+        .cert-name {
+          font-size: 1rem;
+        }
+        
+        .cert-issuer {
+          font-size: 0.9rem;
+        }
+        
+        .cert-date {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+/* Large Laptops (1440px and up) */
+@media (min-width: 1440px) {
+  .page-resume {
+    padding: 4rem 3rem;
     
     .resume-container {
       padding: 2.5rem;
+    }
+    
+    .resume-header {
+      .name-title h1 {
+        font-size: 3.5rem;
+      }
+      
+
     }
     
     .two-column-layout,
@@ -653,310 +1148,28 @@
       gap: 2.5rem;
     }
   }
+}
 
-  // Standard Laptops (1025px - 1440px)
-  @media screen and (min-width: 1025px) and (max-width: 1440px) {
-    padding: 4rem 2rem;
+/* Ultra-wide Screens (1920px and up) */
+@media (min-width: 1920px) {
+  .page-resume {
+    padding: 6rem 3rem;
     
     .resume-container {
-      padding: 2rem;
+      padding: 3rem;
     }
     
     .resume-header {
-      .header-content {
-        flex-direction: column;
-        gap: 1.5rem;
+      .name-title h1 {
+        font-size: 4rem;
       }
-
-      .contact-info .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.6rem 1rem;
-      }
-    }
-    
-    .two-column-layout,
-    .bottom-sections {
-      gap: 2rem;
-    }
-  }
-
-  // Small Laptops/Tablets (768px - 1024px)
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    padding: 3rem 1.5rem;
-    
-    .resume-container {
-      padding: 1.5rem;
-    }
-    
-    .resume-header .header-content {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    .two-column-layout {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    
-    .bottom-sections {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    
-    .resume-controls {
-      position: relative;
-      top: auto;
-      right: auto;
-      margin-bottom: 2rem;
-      justify-content: center;
-    }
-  }
-
-  // Large Mobile/Small Tablets (481px - 767px)
-  @media screen and (min-width: 481px) and (max-width: 767px) {
-    padding: 2rem 1rem;
-    
-    .resume-container {
-      padding: 1.2rem;
-      border-radius: 15px;
-    }
-    
-    .resume-header {
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .contact-info .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem 0.8rem;
-      }
-    }
-    
-    .experience-item {
-      .job-header {
-        flex-direction: column;
-        gap: 0.5rem;
-        
-        .job-meta {
-          align-items: flex-start;
-        }
-      }
-
-      // Client work responsive styles for tablets
-      .client-work-section {
-        .clients-list {
-          gap: 1.2rem;
-        }
-
-        .client-item {
-          padding: 1rem;
-
-          .client-header {
-            flex-direction: column;
-            gap: 0.4rem;
-
-            .client-duration {
-              text-align: left;
-            }
-          }
-
-          .client-tech-tags {
-            .client-tech-tag {
-              font-size: 0.72rem;
-            }
-          }
-
-          .client-responsibilities {
-            .client-responsibility-item.award-item {
-              padding: 0.5rem 0.5rem 0.5rem 1rem;
-              margin: 0.5rem 0;
-              font-size: 0.85rem;
-
-              &:before {
-                font-size: 0.95rem;
-              }
-            }
-          }
-        }
-      }
-
-      // Main responsibility awards responsive styles for tablets
-      .responsibilities .responsibility-item.award-item {
-        padding: 0.5rem 0.5rem 0.5rem 1.3rem;
-        margin: 0.5rem 0;
-        font-size: 0.85rem;
-
-        &:before {
-          font-size: 0.95rem;
-        }
-      }
-    }
-    
-    .two-column-layout,
-    .bottom-sections {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    
-    .resume-controls {
-      position: relative;
-      top: auto;
-      right: auto;
-      margin-bottom: 1.5rem;
-      flex-direction: column;
-      align-items: center;
       
-      .control-btn {
-        width: 100%;
-        max-width: 200px;
-        justify-content: center;
-      }
-    }
-  }
-
-  // Mobile (480px and below)
-  @media screen and (max-width: 480px) {
-    padding: 1rem 0.5rem;
-    
-    .resume-container {
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    
-    .resume-header {
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
+      .job-title {
+        font-size: 1.8rem;
       }
       
       .contact-info {
-        font-size: 0.85rem;
-        
-        .contact-grid {
-          grid-template-columns: 1fr;
-          gap: 0.4rem;
-          text-align: center;
-        }
-      }
-    }
-    
-    .section-title {
-      font-size: 1.2rem;
-    }
-    
-    .experience-item {
-      padding: 1rem;
-      
-      .job-header {
-        flex-direction: column;
-        gap: 0.5rem;
-        
-        .job-position {
-          font-size: 1.1rem;
-        }
-        
-        .job-meta {
-          align-items: flex-start;
-        }
-      }
-
-      // Main responsibility awards responsive styles for mobile
-      .responsibilities .responsibility-item.award-item {
-        padding: 0.5rem 0.5rem 0.5rem 1.2rem;
-        margin: 0.4rem 0;
-        font-size: 0.8rem;
-
-        &:before {
-          font-size: 0.9rem;
-        }
-      }
-
-      // Client work responsive styles for mobile
-      .client-work-section {
-        margin-top: 1rem;
-        padding-top: 0.8rem;
-
-        .client-work-title {
-          font-size: 0.9rem;
-          margin-bottom: 0.8rem;
-        }
-
-        .clients-list {
-          gap: 1rem;
-        }
-
-        .client-item {
-          padding: 1rem;
-
-          .client-header {
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 0.6rem;
-
-            .client-duration {
-              text-align: left;
-              font-size: 0.8rem;
-            }
-
-            .client-info {
-              .client-name {
-                font-size: 1rem;
-              }
-
-              .client-role {
-                font-size: 0.85rem;
-              }
-            }
-          }
-
-          .client-responsibilities {
-            margin-bottom: 0.8rem;
-
-            .client-responsibility-item {
-              font-size: 0.85rem;
-              padding-left: 1rem;
-
-              &.award-item {
-                padding: 0.5rem 0.5rem 0.5rem 1rem;
-                margin: 0.4rem 0;
-                font-size: 0.8rem;
-
-                &:before {
-                  font-size: 0.9rem;
-                }
-              }
-            }
-          }
-
-          .client-tech-tags {
-            .client-tech-tag {
-              font-size: 0.7rem;
-              padding: 0.2rem 0.5rem;
-            }
-          }
-        }
-      }
-    }
-    
-    .skill-tags .skill-tag,
-    .project-tech .tech-tag {
-      font-size: 0.75rem;
-      padding: 0.3rem 0.6rem;
-    }
-    
-    .resume-controls {
-      position: relative;
-      top: auto;
-      right: auto;
-      margin-bottom: 1rem;
-      flex-direction: column;
-      gap: 0.5rem;
-      
-      .control-btn {
-        width: 100%;
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
+        font-size: 1rem;
       }
     }
   }

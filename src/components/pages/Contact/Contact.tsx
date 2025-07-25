@@ -189,8 +189,8 @@ const Contact = () => {
                 </li>
                 <li className="submit animated fadeInUp modern-submit-group">
                   <input type="hidden" name="ip" value="115.99.101.93" />
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     id="submit-form"
                     className="flat-button submit-form modern-submit-btn"
                     onClick={sendEmail}
@@ -200,7 +200,7 @@ const Contact = () => {
                       <span className="base"></span>
                       <span className="text">Send Message!</span>
                     </div>
-                  </a>
+                  </button>
                   <input
                     style={{ display: "none" }}
                     type="submit"

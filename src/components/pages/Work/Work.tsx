@@ -36,7 +36,6 @@ const WorkComponent = () => {
             aria-label="My Portfolio"
             style={{
               margin: 0,
-              fontSize: "5rem",
             }}
             beforeTag={true}
             afterTag={true}

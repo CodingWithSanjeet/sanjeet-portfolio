@@ -66,22 +66,28 @@ const Layout = () => {
             )}
           </div>
         </div>
-        <div className={`mbtn`}>
+        <button 
+          className={`mbtn`}
+          onClick={() => changeMenuBtn(isMenuDisplay)}
+          aria-label={isMenuDisplay === "open" ? "Open navigation menu" : "Close navigation menu"}
+          aria-expanded={isMenuDisplay === "close"}
+          aria-controls="main-navigation"
+        >
           {isMenuDisplay === "open" && (
             <FaBars
               className="mbtn-op"
-              onClick={() => changeMenuBtn("open")}
               size="30"
+              aria-hidden="true"
             />
           )}
           {isMenuDisplay === "close" && (
             <FaTimes
               className="mbtn-cl"
-              onClick={() => changeMenuBtn("close")}
               size="30"
+              aria-hidden="true"
             />
           )}
-        </div>
+        </button>
         <Menu onMenuItemCLick={changeMenuBtn} />
         <div className="page-outer">
           <span className="tags top-tags">

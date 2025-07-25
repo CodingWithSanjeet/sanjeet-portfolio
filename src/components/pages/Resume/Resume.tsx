@@ -36,7 +36,7 @@ const Resume: React.FC = () => {
           <div className="header-content">
             <div className="name-title">
               <HeaderTwo 
-                style={{ margin: 0, fontSize: "4rem", lineHeight: "4.5rem" }}
+                style={{ margin: 0 }}
                 beforeTag={false}
                 afterTag={false}
               >

@@ -1,6 +1,8 @@
 // =======================================
-// MODERN ATTRACTIVE CONTACT PAGE DESIGN (NO MAP)
+// MODERN CONTACT PAGE DESIGN - SCOPED STYLES
 // =======================================
+// NOTE: All styles in this file are scoped to .page-contact to prevent
+// conflicts with other page styles (About, Work, etc.)
 
 .page-contact {
   overflow: hidden;
@@ -29,12 +31,7 @@
   }
 }
 
-@keyframes particleFloat {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -30px) rotate(120deg); }
-  66% { transform: translate(-20px, 20px) rotate(240deg); }
-}
-
+// All Contact page styles must be scoped under .page-contact
 .page-contact .text-zone {
   width: 100%;
   max-width: 800px;
@@ -72,7 +69,6 @@
     opacity: 0.4;
   }
   
-  // Hover lift effect
   &:hover {
     transform: translateY(-8px);
     box-shadow: 
@@ -82,13 +78,8 @@
   }
 }
 
-@keyframes borderGlow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
 // =======================================
-// ENHANCED HEADER AND TEXT STYLING
+// HEADER STYLING
 // =======================================
 
 .page-contact .text-zone header {
@@ -100,88 +91,59 @@
     background: linear-gradient(135deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 4.5rem;
     font-weight: 700;
     margin: 0;
     position: relative;
     animation: textShimmer 4s ease-in-out infinite;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(90deg, transparent, #08fdd8, transparent);
-      border-radius: 2px;
-      animation: underlineGlow 2s ease-in-out infinite;
-    }
-  }
-}
-
-@keyframes textShimmer {
-  0%, 100% { 
-    background-position: 0% 50%; 
-    filter: brightness(1);
-  }
-  50% { 
-    background-position: 100% 50%; 
-    filter: brightness(1.3);
-  }
-}
-
-@keyframes underlineGlow {
-  0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleX(0.5); }
-  50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
-}
-
-// HTML Tag Styling
-.html-tag {
-  font-family: "La Belle Aurore", cursive;
-  color: #539cd4;
-  font-size: 16px;
-  font-weight: 400;
-  opacity: 0;
-  animation: fadeInUp 1s ease forwards;
-  display: block;
-  margin-bottom: 1rem;
-  
-  &.p-tag {
-    margin-top: 1.5rem;
-    animation-delay: 1.2s;
-  }
-}
-
-// Sequential content animation with visibility control
-.content-section {
-  transition: all 0.8s ease;
-  
-  &.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(20px);
   }
   
-  &.visible {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    animation: contentFadeIn 0.8s ease forwards;
+  // Decorative underline
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #08fdd8, transparent);
+    border-radius: 2px;
+    animation: underlineGlow 2s ease-in-out infinite;
+    z-index: 1;
   }
 }
 
-@keyframes contentFadeIn {
-  from { 
-    opacity: 0; 
-    transform: translateY(20px); 
+// HTML Tags for HeaderTwo component - Contact page specific
+.page-contact .text-zone header h2 {
+  &::after {
+    content: "</h2>" !important;
+    font-family: "La Belle Aurore", cursive !important;
+    font-weight: 100;
+    color: #539cd4;
+    font-size: 14px;
+    position: absolute;
+    left: -1rem;
+    bottom: -3rem;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    display: block !important;
+    animation: fadeIn 1s 2s forwards !important;
   }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
+  
+  &::before {
+    content: "<h2>" !important;
+    font-family: "La Belle Aurore", cursive !important;
+    font-weight: 100;
+    color: #539cd4 !important;
+    font-size: 14px;
+    position: absolute !important;
+    margin-top: -3rem;
+    left: -1rem;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    display: block !important;
+    animation: fadeIn 1s 2s forwards !important;
   }
 }
 
@@ -197,17 +159,30 @@
   &::before {
     content: "<p>";
     position: absolute;
-    top: -20px;
+    top: -1rem;
+    left: -1rem;
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    font-size: 16px;
+    opacity: 0;
+    animation: fadeInUp 1s 1.2s forwards;
+  }
+  
+  &::after {
+    content: "</p>";
+    position: absolute;
+    bottom: -20px;
+    left: -15px;
+    font-family: "La Belle Aurore", cursive;
+    color: #539cd4;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeInUp 1s 1.4s forwards;
   }
 }
 
-@keyframes pulseBar {
-  0%, 100% { opacity: 0.4; transform: translateX(-50%) scaleX(0.8); }
-  50% { opacity: 1; transform: translateX(-50%) scaleX(1.1); }
-}
-
 // =======================================
-// MODERN CONTACT FORM STYLING
+// FORM STYLING
 // =======================================
 
 .contact-form {
@@ -227,7 +202,7 @@
     font-size: 16px;
     position: absolute;
     bottom: 100%;
-    left: 0;
+    left: -1rem;
     opacity: 0;
     animation: fadeInUp 1s 0.5s forwards;
   }
@@ -240,7 +215,7 @@
     font-size: 16px;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -1rem;
     opacity: 0;
     animation: fadeInUp 1s 1s forwards;
   }
@@ -270,11 +245,6 @@
   &:nth-child(5) { --delay: 5; }
 }
 
-@keyframes slideInLeft {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
 .contact-form ul li.half {
   width: 48%;
   margin-right: 4%;
@@ -287,57 +257,7 @@
 }
 
 // =======================================
-// HOSHI BORDER FILL EFFECT (USER REFERENCE)
-// =======================================
-
-.input__label--hoshi {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  pointer-events: none;
-}
-
-.input__label--hoshi::before,
-.input__label--hoshi::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-}
-
-.input__label--hoshi::after {
-  margin-top: 2px;
-  border-bottom: 3px solid #08fdd8;
-  background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
-  height: 3px;
-  border: none;
-  transform: translate3d(-100%, 0, 0);
-  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-delay: 0.2s; // Attractive delay
-}
-
-.input__label--hoshi-color-2::after {
-  background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
-  border: none;
-}
-
-.input__field--hoshi:focus + .input__label--hoshi::after,
-.input--filled .input__label--hoshi::after {
-  transform: translate3d(0, 0, 0);
-}
-
-// Preview effect on hover
-.input__field--hoshi:hover:not(:focus) + .input__label--hoshi::after {
-  transform: translate3d(-75%, 0, 0); // 25% visible
-  transition-delay: 0.1s; // Preview delay
-}
-
-// =======================================
-// GREATLY ENHANCED INPUT STYLING
+// INPUT STYLING
 // =======================================
 
 .contact-form input[type="text"],
@@ -350,7 +270,6 @@
   color: #fff;
   padding: 0 25px;
   box-sizing: border-box;
-  border-radius: 0; // No border radius
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-bottom: 2px solid transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -359,7 +278,6 @@
     0 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
   
-  // Enhanced focus effects
   &:focus {
     outline: none;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -374,7 +292,6 @@
     transform: translateY(-3px) scale(1.02);
   }
   
-  // Enhanced hover effects
   &:hover:not(:focus) {
     border-color: rgba(8, 253, 216, 0.3);
     background: linear-gradient(145deg, #2c2c2c 0%, #202020 100%);
@@ -394,6 +311,20 @@
   &:focus::placeholder {
     opacity: 0.6;
     transform: translateX(5px);
+  }
+  
+  &:invalid:not(:placeholder-shown) {
+    border-color: rgba(253, 16, 86, 0.5);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(253, 16, 86, 0.3);
+  }
+  
+  &:valid:not(:placeholder-shown) {
+    border-color: rgba(8, 253, 216, 0.3);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(8, 253, 216, 0.2);
   }
 }
 
@@ -446,10 +377,73 @@
     opacity: 0.6;
     transform: translateY(-2px);
   }
+  
+  &:invalid:not(:placeholder-shown) {
+    border-color: rgba(253, 16, 86, 0.5);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(253, 16, 86, 0.3);
+  }
+  
+  &:valid:not(:placeholder-shown) {
+    border-color: rgba(8, 253, 216, 0.3);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(8, 253, 216, 0.2);
+  }
 }
 
 // =======================================
-// SPECTACULAR SUBMIT BUTTON
+// HOSHI BORDER EFFECT
+// =======================================
+
+.input__label--hoshi {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+
+.input__label--hoshi::before,
+.input__label--hoshi::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.input__label--hoshi::after {
+  margin-top: 2px;
+  border-bottom: 3px solid #08fdd8;
+  background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
+  height: 3px;
+  border: none;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.2s;
+}
+
+.input__label--hoshi-color-2::after {
+  background: linear-gradient(90deg, #08fdd8, #539cd4, #fd1056);
+  border: none;
+}
+
+.input__field--hoshi:focus + .input__label--hoshi::after,
+.input--filled .input__label--hoshi::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.input__field--hoshi:hover:not(:focus) + .input__label--hoshi::after {
+  transform: translate3d(-75%, 0, 0);
+  transition-delay: 0.1s;
+}
+
+// =======================================
+// SUBMIT BUTTON
 // =======================================
 
 .contact-form .flat-button {
@@ -476,14 +470,17 @@
   background: linear-gradient(135deg, #08fdd8 0%, #539cd4 50%, #fd1056 100%);
   background-size: 200% 200%;
   border-radius: 35px;
+  border: none;
   box-shadow: 
     0 12px 30px rgba(8, 253, 216, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   
-  // Animated background
   &::before {
     content: '';
     position: absolute;
@@ -495,7 +492,6 @@
     transition: left 0.6s ease;
   }
   
-  // Spectacular hover effects
   &:hover {
     transform: translateY(-5px) scale(1.05);
     background-position: 100% 50%;
@@ -514,13 +510,11 @@
     }
   }
   
-  // Active state
   &:active {
     transform: translateY(-2px) scale(1.02);
     transition: transform 0.1s ease;
   }
   
-  // Focus state for accessibility
   &:focus {
     outline: none;
     box-shadow: 
@@ -561,7 +555,7 @@
 }
 
 // =======================================
-// ENHANCED CONTACT ELEMENTS
+// ENHANCED ELEMENTS
 // =======================================
 
 .modern-form {
@@ -578,11 +572,6 @@
     border-radius: 2px;
     animation: pulseWidth 3s ease-in-out infinite;
   }
-}
-
-@keyframes pulseWidth {
-  0%, 100% { width: 60px; opacity: 0.6; }
-  50% { width: 120px; opacity: 1; }
 }
 
 .modern-input-group {
@@ -627,89 +616,79 @@
   }
 }
 
+// Sequential content animation
+.content-section {
+  transition: all 0.8s ease;
+  
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    animation: contentFadeIn 0.8s ease forwards;
+  }
+}
+
+// =======================================
+// ANIMATIONS
+// =======================================
+
+@keyframes particleFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(120deg); }
+  66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes textShimmer {
+  0%, 100% { 
+    background-position: 0% 50%; 
+    filter: brightness(1);
+  }
+  50% { 
+    background-position: 100% 50%; 
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes underlineGlow {
+  0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleX(0.5); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulseWidth {
+  0%, 100% { width: 60px; opacity: 0.6; }
+  50% { width: 120px; opacity: 1; }
+}
+
 @keyframes submitDivider {
   to { opacity: 0.8; }
 }
 
-// =======================================
-// RESPONSIVE DESIGN
-// =======================================
-
-@media (max-width: 1024px) {
-  .page-contact .text-zone {
-    max-width: 700px;
-    padding: 3rem;
+@keyframes contentFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }
-
-@media (max-width: 768px) {
-  .page-contact {
-    padding: 1rem;
-  }
-  
-  .page-contact .text-zone {
-    max-width: 100%;
-    padding: 2.5rem;
-    border-radius: 15px;
-  }
-  
-  .text-zone header h2 {
-    font-size: 3rem;
-  }
-  
-  .contact-form ul li.half {
-    width: 100%;
-    margin-right: 0;
-    float: none;
-  }
-  
-  .flat-button {
-    max-width: 250px;
-    height: 60px;
-    line-height: 60px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-contact .text-zone {
-    padding: 2rem 1.5rem;
-  }
-  
-  .text-zone header h2 {
-    font-size: 2.5rem;
-  }
-  
-  .text-zone p {
-    font-size: 1.1rem;
-  }
-  
-  .contact-form input[type="text"],
-  .contact-form input[type="email"],
-  .contact-form textarea {
-    height: 55px;
-    padding: 0 20px;
-    border-radius: 12px;
-    font-size: 15px;
-  }
-  
-  .contact-form textarea {
-    min-height: 140px;
-    padding: 20px;
-  }
-  
-  .flat-button {
-    max-width: 220px;
-    height: 55px;
-    line-height: 55px;
-    font-size: 14px;
-    letter-spacing: 2px;
-  }
-}
-
-// =======================================
-// UTILITY ANIMATIONS
-// =======================================
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -719,6 +698,626 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+// =======================================
+// RESPONSIVE DESIGN - ALL MEDIA QUERIES
+// =======================================
+
+// Large Desktop (1024px+)
+@media (max-width: 1024px) {
+  .page-contact .text-zone {
+    max-width: 700px;
+    padding: 3rem 2.5rem;
+  }
+  
+  .page-contact .text-zone header h2 {
+    font-size: 3.5rem;
+  }
+}
+
+// Tablet (768px - 1023px)
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .page-contact {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .page-contact .text-zone {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+    
+    &::before {
+      opacity: 0.3;
+    }
+  }
+  
+  .text-zone header {
+    margin-bottom: 2rem;
+    
+    h2 {
+      line-height: 1.1;
+      
+      &::after {
+        bottom: -2.5rem !important;
+        font-size: 14px !important;
+        left: 0.5rem !important;
+      }
+      
+      &::before {
+        margin-top: -1.5rem !important;
+        font-size: 14px !important;
+        left: 0.5rem !important;
+      }
+    }
+    
+    &::after {
+      width: 80px;
+      height: 3px;
+      bottom: -12px;
+    }
+  }
+  
+  .page-contact .text-zone p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    
+    &::before {
+      left: 0.5rem !important;
+    }
+    
+    &::after {
+      left: 0.5rem !important;
+    }
+  }
+  
+  .contact-form ul li.half {
+    width: 100%;
+    margin-right: 0;
+    float: none;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 58px;
+    font-size: 16px;
+    padding: 0 20px;
+    border-radius: 12px;
+  }
+  
+  .contact-form textarea {
+    min-height: 160px;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 16px;
+  }
+  
+  .flat-button {
+    max-width: 260px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 30px auto 0;
+  }
+}
+
+// Large Mobile (600px and below)
+@media screen and (min-width: 481px) and (max-width: 600px) {
+  .page-contact {
+    padding: 0.5rem;
+    padding-top: 1.5rem;
+  }
+  
+  .page-contact .text-zone {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+  }
+  
+  .page-contact .text-zone p {
+    font-size: 1.1rem;
+    padding: 0;
+  }
+}
+
+// Mobile (320px - 480px)
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .page-contact {
+    padding: 0.75rem;
+    padding-top: 1.5rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    justify-content: flex-start;
+    
+    &::before {
+      background: 
+        radial-gradient(circle at 30% 70%, rgba(8, 253, 216, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(253, 16, 86, 0.08) 0%, transparent 50%);
+      animation-duration: 30s;
+    }
+  }
+  
+  .page-contact .text-zone {
+    padding: 2rem 1.25rem;
+    border-radius: 12px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(8, 253, 216, 0.15);
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(29, 29, 29, 0.98) 0%, rgba(20, 20, 20, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    width: 100%;
+    max-width: none;
+    
+    &::before {
+      opacity: 0;
+    }
+    
+    &:hover::before {
+      opacity: 0.1;
+    }
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .page-contact .text-zone header {
+    margin-bottom: 2rem;
+    text-align: center;
+    
+    h2 {
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      
+      &::before {
+        margin-top: -1.5rem !important;
+        font-size: 14px !important;
+        left: 0.5rem !important;
+      }
+      
+      &::after {
+        bottom: -2.5rem !important;
+        font-size: 14px !important;
+        left: 0.5rem !important;
+      }
+    }
+    
+    &::after {
+      width: 80px;
+      height: 3px;
+      bottom: -12px;
+    }
+  }
+  
+  .page-contact .text-zone p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 0;
+    text-align: center;
+    color: #c5c5c5;
+    font-weight: 400;
+    
+    &::before {
+      left: 0.5rem !important;
+    }
+    
+    &::after {
+      left: 0.5rem !important;
+    }
+  }
+  
+  .contact-form {
+    padding-top: 0.5rem;
+    width: 100%;
+    
+    form {
+      &::before,
+      &::after {
+        display: block !important;
+        opacity: 1 !important;
+        font-size: 14px !important;
+      }
+      
+      &::before {
+        left: 0.5rem !important;
+        top: -1.5rem;
+        bottom: calc(100% + 0.5rem) !important;
+      }
+      
+      &::after {
+        left: 0.5rem !important;
+        top: calc(100% + 0.5rem) !important;
+      }
+    }
+  }
+  
+  .contact-form ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .contact-form ul li {
+    margin-bottom: 20px;
+    width: 100%;
+    
+    &.half {
+      width: 100%;
+      margin-right: 0;
+      float: none;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 56px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    background: linear-gradient(145deg, #333333 0%, #2a2a2a 100%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    box-shadow: 
+      inset 0 1px 3px rgba(0, 0, 0, 0.2),
+      0 2px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    
+    &::placeholder {
+      color: #888888 !important;
+      font-weight: 400;
+    }
+    
+    &:focus {
+      transform: translateY(-1px);
+      background: linear-gradient(145deg, #3a3a3a 0%, #303030 100%) !important;
+      border-color: rgba(8, 253, 216, 0.5) !important;
+      box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.2),
+        0 6px 15px rgba(8, 253, 216, 0.2),
+        0 0 0 2px rgba(8, 253, 216, 0.1) !important;
+      outline: none !important;
+      
+      &::placeholder {
+        color: #aaaaaa !important;
+      }
+    }
+    
+    &:hover:not(:focus) {
+      transform: translateY(-1px);
+      border-color: rgba(8, 253, 216, 0.3) !important;
+      background: linear-gradient(145deg, #363636 0%, #2d2d2d 100%) !important;
+    }
+    
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+  
+  .contact-form textarea {
+    min-height: 140px;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+    background: linear-gradient(145deg, #333333 0%, #2a2a2a 100%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    box-shadow: 
+      inset 0 1px 3px rgba(0, 0, 0, 0.2),
+      0 2px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    resize: vertical;
+    font-family: "Open Sans", sans-serif;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    
+    &::placeholder {
+      color: #888888 !important;
+      font-style: normal;
+      font-weight: 400;
+    }
+    
+    &:focus {
+      transform: translateY(-1px);
+      background: linear-gradient(145deg, #3a3a3a 0%, #303030 100%) !important;
+      border-color: rgba(8, 253, 216, 0.5) !important;
+      box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.2),
+        0 6px 15px rgba(8, 253, 216, 0.2),
+        0 0 0 2px rgba(8, 253, 216, 0.1) !important;
+      outline: none !important;
+      
+      &::placeholder {
+        color: #aaaaaa !important;
+      }
+    }
+    
+    &:hover:not(:focus) {
+      transform: translateY(-1px);
+      border-color: rgba(8, 253, 216, 0.3) !important;
+      background: linear-gradient(145deg, #363636 0%, #2d2d2d 100%) !important;
+    }
+    
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+  
+  .page-contact .flat-button {
+    max-width: 240px;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 30px auto 0;
+    border-radius: 28px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    box-shadow: 
+      0 8px 20px rgba(8, 253, 216, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    min-width: 44px;
+    min-height: 44px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(8, 253, 216, 0.2);
+    
+    &:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 
+        0 12px 25px rgba(8, 253, 216, 0.4),
+        0 0 15px rgba(253, 16, 86, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    
+    &:active {
+      transform: translateY(0) scale(1);
+      transition: transform 0.1s ease;
+      box-shadow: 
+        0 4px 12px rgba(8, 253, 216, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    
+    &:focus-visible {
+      outline: 3px solid rgba(8, 253, 216, 0.6);
+      outline-offset: 2px;
+    }
+    
+    div {
+      border-radius: 28px;
+      height: 100%;
+      width: 100%;
+    }
+    
+    span.text {
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  
+  .modern-input-group {
+    &::before {
+      display: none;
+    }
+  }
+  
+  .input__label--hoshi::after {
+    height: 2px;
+    transition: transform 0.4s ease;
+    background: linear-gradient(90deg, #08fdd8, #539cd4) !important;
+  }
+}
+
+// Very Small Mobile (below 320px)
+@media screen and (max-width: 319px) {
+  .page-contact {
+    padding: 0.5rem;
+    padding-top: 1rem;
+  }
+  
+  .page-contact .text-zone {
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+  }
+  
+  .page-contact .text-zone header {
+    margin-bottom: 1.5rem;
+    
+    h2 {
+      line-height: 1.1;
+      
+      &::before {
+        margin-top: -2rem !important;
+        font-size: 13px !important;
+        left: 0 !important;
+      }
+      
+      &::after {
+        bottom: -2rem !important;
+        font-size: 13px !important;
+        left: 0 !important;
+      }
+    }
+    
+    &::after {
+      width: 60px;
+      height: 2px;
+      bottom: -8px;
+    }
+  }
+  
+  .page-contact .text-zone p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-form ul li {
+    margin-bottom: 16px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 52px;
+    padding: 0 18px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+  
+  .contact-form textarea {
+    min-height: 120px;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+  
+  .page-contact .flat-button {
+    max-width: 200px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    border-radius: 26px;
+    margin: 25px auto 0;
+    
+    div {
+      border-radius: 26px;
+    }
+    
+    span.text {
+      font-size: 15px;
+    }
+  }
+}
+
+// Landscape Orientation on Mobile
+@media screen and (max-height: 500px) and (orientation: landscape) and (max-width: 768px) {
+  .page-contact {
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .page-contact .text-zone {
+    padding: 1rem;
+    margin-top: 0;
+  }
+  
+  .text-zone header {
+    margin-bottom: 1rem;
+  }
+  
+  .page-contact .text-zone p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .contact-form ul li {
+    margin-bottom: 12px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 44px;
+  }
+  
+  .contact-form textarea {
+    min-height: 80px;
+  }
+  
+  .flat-button {
+    height: 44px;
+    line-height: 44px;
+    margin: 15px auto 0;
+  }
+}
+
+// High DPI Displays
+@media (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 480px) {
+  .page-contact .text-zone {
+    border-width: 0.5px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    border-width: 1px;
+  }
+  
+  .input__label--hoshi::after {
+    height: 1.5px;
+  }
+}
+
+// Dark Mode Support
+@media screen and (min-width: 320px) and (max-width: 480px) and (prefers-color-scheme: dark) {
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+    color: #fff;
+    
+    &::placeholder {
+      color: #666;
+    }
+  }
+}
+
+// Accessibility - Reduced Motion
+@media screen and (min-width: 320px) and (max-width: 480px) and (prefers-reduced-motion: reduce) {
+  .page-contact::before {
+    animation: none;
+  }
+  
+  .page-contact .text-zone {
+    &:hover {
+      transform: none;
+    }
+    
+    &::before {
+      animation: none;
+    }
+  }
+  
+  .flat-button:hover {
+    transform: translateY(-1px);
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    transform: none;
+  }
 }
   
   

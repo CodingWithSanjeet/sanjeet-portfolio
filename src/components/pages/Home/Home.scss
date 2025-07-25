@@ -18,6 +18,7 @@
     align-items: center;
     position: relative;
     overflow: visible;
+    z-index: 1; /* Create stacking context */
   }
 
   .text-zone {
@@ -38,9 +39,10 @@
     transform: translateY(-50%);
     height: 100vh;
     max-height: 100vh;
+    z-index: 1; /* Ensure avatar-box is above background */
   }
 
-  /* Keep only avatarGlow animation */
+  /* Avatar glow animation behind the image */
   .avatar-box::before {
     content: '';
     position: absolute;
@@ -51,19 +53,84 @@
     transform: translate(-50%, -50%);
     background: linear-gradient(45deg, #08fdd8, #539cd4, #fd1056);
     border-radius: 50%;
-    z-index: -1;
+    z-index: 0; /* Behind avatar image but above background */
     animation: avatarGlow 4s ease-in-out infinite;
     filter: blur(20px);
+    pointer-events: none; /* Don't interfere with interactions */
+    will-change: transform, opacity; /* Optimize animation performance */
+    display: block; /* Ensure it's visible */
   }
 
   @keyframes avatarGlow {
     0%, 100% { 
       transform: translate(-50%, -50%) scale(1) rotate(0deg);
-      opacity: 0.3;
+      opacity: 0.4;
     }
     50% { 
       transform: translate(-50%, -50%) scale(1.1) rotate(180deg);
-      opacity: 0.6;
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes rotateIn {
+    0% {
+      transform: rotate(-360deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Mobile performance optimizations */
+  @media screen and (max-width: 768px) {
+    .avatar-box::before {
+      width: 250px;
+      height: 250px;
+      filter: blur(15px);
+      animation-duration: 6s; /* Slower animation for better performance */
+      z-index: 0; /* Ensure proper layering on tablet */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .avatar-box::before {
+      width: 180px;
+      height: 180px;
+      filter: blur(10px);
+      animation-duration: 8s; /* Even slower for mobile */
+      z-index: 0; /* Ensure proper layering on mobile */
+    }
+    
+    /* Simplified animation for very small screens */
+    @keyframes avatarGlow {
+      0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+      }
+      50% { 
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 0.6;
+      }
+    }
+  }
+
+  /* Disable animations on low-power devices */
+  @media (prefers-reduced-motion: reduce) {
+    .avatar-box::before {
+      animation: none;
+      opacity: 0.3;
+      transform: translate(-30%, -50%) scale(1);
     }
   }
   
@@ -159,6 +226,8 @@
     max-height: 85vh;
     height: auto;
     object-fit: contain;
+    position: relative;
+    z-index: 2; /* Above the glow effect */
   }
 
   /* Enhanced Button Styling */
@@ -351,6 +420,8 @@
       flex-direction: column;
       padding: 1.5rem 1rem;
       text-align: center;
+      justify-content: center;
+      min-height: 100vh;
     }
     
     .text-zone {
@@ -361,19 +432,43 @@
     
     .text-zone h1 {
       font-size: 2.8rem;
-      line-height: 1.2;
+      line-height: 1.3;
       letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .text-zone h1::before {
+      font-size: 1rem;
+      top: -25px;
+    }
+    
+    .text-zone h1::after {
+      font-size: 1rem;
+      bottom: -25px;
     }
     
     .text-zone img {
       height: 2.5rem;
       width: 2.5rem;
+      margin: 0 0.3rem;
     }
     
     #section-home .text-zone p {
-      font-size: 14px;
-      letter-spacing: 1px;
-      margin-top: 1.5rem;
+      font-size: 16px;
+      letter-spacing: 1.5px;
+      margin-top: 2rem;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+    
+    #section-home .text-zone p::before {
+      font-size: 1rem;
+      top: -20px;
+    }
+    
+    #section-home .text-zone p::after {
+      font-size: 1rem;
+      bottom: -20px;
     }
     
     .avatar-box {
@@ -383,6 +478,12 @@
       height: auto;
       max-height: 50vh;
       padding: 0;
+      margin-top: 1.5rem;
+    }
+    
+    .avatar-box img {
+      max-height: 45vh;
+      width: auto;
     }
     
     .avatar-box::before {
@@ -395,34 +496,83 @@
   @media screen and (max-width: 480px) {
     #section-home {
       flex-direction: column;
-      padding: 1rem 0.5rem;
+      padding: 1rem 1rem;
       text-align: center;
+      justify-content: center;
+      min-height: 100vh;
     }
     
     .text-zone {
       width: 100%;
       padding: 0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     
     .text-zone h1 {
-      font-size: 2.2rem;
-      line-height: 1.1;
+      font-size: 2rem;
+      line-height: 1.2;
       letter-spacing: -1px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .text-zone h1::before {
+      font-size: 0.8rem;
+      top: -20px;
+      left: 0;
+    }
+    
+    .text-zone h1::after {
+      font-size: 0.8rem;
+      bottom: -20px;
+      left: 0;
     }
     
     .text-zone img {
-      height: 2rem;
-      width: 2rem;
+      height: 1.8rem;
+      width: 1.8rem;
+      margin: 0 0.2rem;
     }
     
     #section-home .text-zone p {
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      margin-top: 1rem;
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+      padding: 0 0.5rem;
+    }
+    
+    #section-home .text-zone p::before {
+      font-size: 0.8rem;
+      top: -15px;
+      left: 0;
+    }
+    
+    #section-home .text-zone p::after {
+      font-size: 0.8rem;
+      bottom: -15px;
+      left: 0;
     }
     
     .avatar-box {
-      display: none; // Hide avatar on very small screens
+      position: static;
+      transform: none;
+      width: 100%;
+      height: auto;
+      max-height: 40vh;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    
+    .avatar-box img {
+      max-height: 35vh;
+      width: auto;
+    }
+    
+    .avatar-box::before {
+      width: 180px;
+      height: 180px;
     }
   }

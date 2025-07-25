@@ -273,9 +273,13 @@
   .section-header {
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
+
+    .header-sparkles {
+      display: none;
+    }
     
     h3 {
-      font-size: 1.8rem;
+      font-size: 1.3rem;
     }
   }
 } 

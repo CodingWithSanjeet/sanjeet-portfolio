@@ -56,7 +56,7 @@ export const resumeData: ResumeData = {
     name: "Sanjeet Kumar",
     title: "Senior Software Engineer",
     email: "sanjeet.kuma.nitt@gmail.com",
-    phone: "+91 9876543210",
+    phone: "+91 9035855774",
     location: "Bangalore, India",
     linkedin: "https://www.linkedin.com/in/sanjeet-kumar-nitt/",
     github: "github.com/CodingWithSanjeet",

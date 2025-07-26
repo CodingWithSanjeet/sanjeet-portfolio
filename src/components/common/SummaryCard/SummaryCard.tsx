@@ -23,13 +23,15 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
 }) => {
   return (
     <div className={`summary-card-modern ${className}`}>
-      <div className={`summary-icon ${iconType}-icon`}>
-        {icon}
-      </div>
-      <div className="summary-content">
-        <div className="summary-number">{number}</div>
-        <div className="summary-label">{label}</div>
-        <div className="summary-sublabel">{sublabel}</div>
+      <div className="summary-header">
+        <div className="summary-content">
+          <div className="summary-number">{number}</div>
+          <div className="summary-label">{label}</div>
+          <div className="summary-sublabel">{sublabel}</div>
+        </div>
+        <div className={`summary-icon ${iconType}-icon`}>
+          {icon}
+        </div>
       </div>
       <div className="summary-progress">
         <div 

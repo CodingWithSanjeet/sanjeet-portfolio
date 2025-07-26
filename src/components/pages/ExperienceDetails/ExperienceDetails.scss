@@ -789,6 +789,8 @@
           gap: 0.8rem;
 
           .tech-tag {
+            display: flex;
+            align-items: center;
             background: linear-gradient(135deg, rgba(8, 253, 216, 0.1) 0%, rgba(83, 156, 212, 0.1) 100%);
             color: $text-white;
             padding: 0.5rem 1rem;
